@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfMVVM_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfMVVM_Project"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Horizontal">
+            <Button Margin="10" Content="Home" Width="120"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Hola Juapo"/>
+            <Button Margin="10" Content="Info" Width="120"/>
+        </StackPanel>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
+    </StackPanel>
+</Window>
