@@ -1,0 +1,133 @@
+﻿<UserControl x:Class="WpfMVVM_Project.Views.InfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:local="clr-namespace:WpfMVVM_Project.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" Background="Blue"
+              >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadProductosCommand}"/>
+        </i:EventTrigger>
+        
+    </i:Interaction.Triggers>
+    
+    
+    <StackPanel Height="850" Width="1200">
+        <TextBlock Text="Productos" FontSize="40" TextAlignment="Center"/>
+        <Grid Height="650" Width="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="500"/>
+            </Grid.RowDefinitions>
+            <!--TABLA Productos-->
+            <StackPanel>
+                <ListView ItemsSource="{Binding ListaProductos}" MaxHeight="600">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Código de barras" DisplayMemberBinding="{Binding Path=_id}" />
+                            <GridViewColumn Header="Proveedores" DisplayMemberBinding="{Binding Path=Proveedores}"/>
+                            <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=Categoria}"/>
+                            <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Path=Marca}"/>
+                            <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Path=Color}"/>
+                            <GridViewColumn Header="Bastidor" DisplayMemberBinding="{Binding Path=Bastidor}"/>
+                            <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding Path=Descripcion}"/>
+                            <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding Path=Precio}"/>
+                            <GridViewColumn Header="Fecha de entrada" DisplayMemberBinding="{Binding Path=FechaEntrada}"/>
+                            <GridViewColumn Header="Stock" DisplayMemberBinding="{Binding Path=Stock}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+            <!--Crear/ETC-->
+            <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
+                <materialDesign:Card Padding="20" Margin="16" Height="260" Width="200">
+                    <StackPanel>
+                        <TextBox materialDesign:HintAssist.Hint="Código de barras" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos._id, UpdateSourceTrigger=PropertyChanged}"/>
+                        <ComboBox x:Name="cargarProveedores" Width="200" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="{Binding CurrentProductos.Proveedores}"
+                              IsEnabled="{Binding ElementName=vistaEstudiantes, Path=EditarActivado}">
+                        </ComboBox>
+                        <TextBox materialDesign:HintAssist.Hint="Categoria" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Categoria, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox materialDesign:HintAssist.Hint="Marca" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Marca, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBox materialDesign:HintAssist.Hint="Color" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Color, UpdateSourceTrigger=PropertyChanged}"/>
+                    </StackPanel>
+                </materialDesign:Card>
+                  
+                    <StackPanel>
+                        <Button Content="Crear" Width="100" HorizontalAlignment="Center" Command="{Binding NewProductosCommand}" 
+                                CommandParameter="{Binding ElementName=cargarProveedores, Path=SelectedItem}"/>
+                    </StackPanel>
+                
+            </StackPanel>
+            <!--Crear/ETC-->
+            <StackPanel Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right">
+                <StackPanel>
+                    <materialDesign:Card Padding="20" Margin="16" Height="260" Width="200">
+                        <StackPanel>
+                            <TextBox materialDesign:HintAssist.Hint="Bastidor" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Bastidor, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Descripción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Descripcion, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Precio" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Precio, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DatePicker materialDesign:HintAssist.Hint="Fecha de entrada" 
+                                    Width="160" 
+                                    HorizontalContentAlignment="Left"
+                                    FontSize="12"
+                                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
+                                    SelectedDate="{Binding CurrentProductos.Fecha, StringFormat=dd/MM/yyyy}"/>
+                            <TextBox materialDesign:HintAssist.Hint="Stock" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 VerticalAlignment="Center"
+                                 FontSize="12"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 Width="160"
+                                 Text="{Binding CurrentProductos.Stock, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </materialDesign:Card>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+       
+        
+    </StackPanel>
+</UserControl>

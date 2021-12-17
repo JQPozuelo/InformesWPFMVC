@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    
+    <ImageBrush x:Key="fondo1" ImageSource="../Images/fondovs.jpg"/>
+    <ImageBrush x:Key="img1" ImageSource="../Images/img1.jpg"/>
+    <ImageBrush x:Key="fondovs2" ImageSource="../Images/fondovs2.jpg"/>
+    <ImageBrush x:Key="fondovs3" ImageSource="../Images/fondovs3.jpeg"/>
+</ResourceDictionary>

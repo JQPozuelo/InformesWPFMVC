@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WpfMVVM_Project.ViewModels;
 
 namespace WpfMVVM_Project.Commands
 {
@@ -19,6 +20,23 @@ namespace WpfMVVM_Project.Commands
         public void Execute(object parameter)
         {
             Console.WriteLine(parameter.ToString());
+            string vista = parameter.ToString();
+            if (vista.Equals("Home"))
+            {
+                MainViewModel.SelectedViewModel = new HomeViewModel();
+            }
+            else if (vista.Equals("Info"))
+            {
+                MainViewModel.SelectedViewModel = new InfoViewModel();
+            }
+        }
+
+        public MainViewModel MainViewModel { set; get; }
+
+        public UpdateViewCommand(MainViewModel mainViewModel)
+        {
+            MainViewModel = mainViewModel;
+            MainViewModel.SelectedViewModel = new HomeViewModel();
         }
     }
 }
