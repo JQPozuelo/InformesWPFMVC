@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
             <!--TABLA Productos-->
             <StackPanel>
-                <ListView ItemsSource="{Binding ListaProductos}" MaxHeight="600">
+                <ListView ItemsSource="{Binding ListaProductos}" MaxHeight="600" MaxWidth="600">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Código de barras" DisplayMemberBinding="{Binding Path=_id}" />
@@ -56,7 +56,7 @@
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
                                  Text="{Binding CurrentProductos._id, UpdateSourceTrigger=PropertyChanged}"/>
-                        <ComboBox x:Name="cargarProveedores" Width="200" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
+                        <ComboBox x:Name="cargarProveedores" Width="160" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
                               Style="{StaticResource MaterialDesignFloatingHintComboBox}" Text="{Binding CurrentProductos.Proveedores}"
                               IsEnabled="{Binding ElementName=vistaEstudiantes, Path=EditarActivado}">
                         </ComboBox>

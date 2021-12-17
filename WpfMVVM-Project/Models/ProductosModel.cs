@@ -146,7 +146,8 @@ namespace WpfMVVM_Project.Models
 
         public ProductosModel()
         {
-
+            fechaEntrada = DateTime.Today;
+            proveedor = new ObservableCollection<string>();
         }
 
     }
