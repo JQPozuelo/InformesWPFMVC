@@ -29,6 +29,7 @@ namespace WpfMVVM_Project.Commands
             {
                 MainViewModel.SelectedViewModel = new InfoViewModel();
             }
+            
         }
 
         public MainViewModel MainViewModel { set; get; }
@@ -36,7 +37,7 @@ namespace WpfMVVM_Project.Commands
         public UpdateViewCommand(MainViewModel mainViewModel)
         {
             MainViewModel = mainViewModel;
-            MainViewModel.SelectedViewModel = new HomeViewModel();
+            
         }
     }
 }

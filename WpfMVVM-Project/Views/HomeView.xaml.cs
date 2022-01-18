@@ -67,8 +67,13 @@ namespace WpfMVVM_Project.Views
             btnModificarProveedor.Visibility = Visibility.Collapsed;
             btnCrearProveedor.Visibility = Visibility.Visible;
             btnSalirProveedor.Visibility = Visibility.Collapsed;
-
+            btnGuardarProveedor.Visibility = Visibility.Collapsed;
             txtWarning.Text = "";
+            txtCIF.Text = "";
+            txtNombre.Text = "";
+            txtPoblacion.Text = "";
+            txtTelefono.Text = "";
+            
         }
 
         public void E01EstadoMostrarModificador()
@@ -80,15 +85,17 @@ namespace WpfMVVM_Project.Views
             btnModificarProveedor.Visibility = Visibility.Visible;
             btnBorrarProveedor.Visibility = Visibility.Collapsed;
             btnSalirProveedor.Visibility = Visibility.Collapsed;
+            btnGuardarProveedor.Visibility = Visibility.Collapsed;
             proveedoresListView.IsEnabled = true;
         }
 
         public void E02ModificarProveedor()
         {
             btnCrearProveedor.Visibility = Visibility.Collapsed;
-            btnModificarProveedor.Visibility = Visibility.Visible;
+            btnModificarProveedor.Visibility = Visibility.Collapsed;
             btnBorrarProveedor.Visibility = Visibility.Visible;
             btnSalirProveedor.Visibility = Visibility.Visible;
+            btnGuardarProveedor.Visibility = Visibility.Visible;
             proveedoresListView.IsEnabled = false;
 
             EditarActivadoId = false;
@@ -110,6 +117,11 @@ namespace WpfMVVM_Project.Views
         {
             //E00EstadoInicial();
             E01EstadoMostrarModificador();
+        }
+
+        private void btnBorrarProveedor_Click(object sender, RoutedEventArgs e)
+        {
+            E00EstadoInicial();
         }
     }
 }

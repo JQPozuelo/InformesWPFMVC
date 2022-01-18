@@ -69,6 +69,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\ProductosCom\BuscarPalabraCommand.cs" />
+    <Compile Include="Commands\ProductosCom\BuscarProveedoresCommand.cs" />
+    <Compile Include="Commands\ProductosCom\CargarComboProveedorCommand.cs" />
+    <Compile Include="Commands\ProductosCom\DeleteProductoCommand.cs" />
+    <Compile Include="Commands\ProductosCom\LoadProductoCommand.cs" />
+    <Compile Include="Commands\ProductosCom\SalirProductoCommand.cs" />
+    <Compile Include="Commands\ProductosCom\SaveProductosCommand.cs" />
+    <Compile Include="Commands\ProductosCom\SelectProveedorCommand.cs" />
     <Compile Include="Commands\Proveedores\DeleteProveedorCommand.cs" />
     <Compile Include="Commands\Proveedores\LoadProveedorCommand.cs" />
     <Compile Include="Commands\ProductosCom\LoadProductosCommand.cs" />
@@ -160,7 +168,9 @@
   <ItemGroup>
     <Resource Include="Resources\Images\fondovs3.jpeg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\Images\Logo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

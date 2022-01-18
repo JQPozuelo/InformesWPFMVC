@@ -9,7 +9,7 @@ using WpfMVVM_Project.ViewModels;
 
 namespace WpfMVVM_Project.Commands.ProductosCom
 {
-    class LoadProductosCommand : ICommand
+    class BuscarPalabraCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -20,15 +20,13 @@ namespace WpfMVVM_Project.Commands.ProductosCom
 
         public void Execute(object parameter)
         {
-           
-                ProductosDBHandler.cargarLista(infoViewModel.ListaProveedores);
-                infoViewModel.ListaProductos = ProductosDBHandler.ObtenerListaProductos();
-          
-            
+            string palabra = infoViewModel.pB;
+            infoViewModel.ListaProductos = ProductosDBHandler.busquedaProductos(palabra);
         }
 
-        private InfoViewModel infoViewModel;
-        public LoadProductosCommand(InfoViewModel infoViewModel)
+        public InfoViewModel infoViewModel;
+
+        public BuscarPalabraCommand(InfoViewModel infoViewModel)
         {
             this.infoViewModel = infoViewModel;
         }

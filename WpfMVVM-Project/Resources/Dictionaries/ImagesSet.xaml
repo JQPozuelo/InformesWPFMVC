@@ -5,4 +5,5 @@
     <ImageBrush x:Key="img1" ImageSource="../Images/img1.jpg"/>
     <ImageBrush x:Key="fondovs2" ImageSource="../Images/fondovs2.jpg"/>
     <ImageBrush x:Key="fondovs3" ImageSource="../Images/fondovs3.jpeg"/>
+    <ImageBrush x:Key="logoE" ImageSource="../Images/Logo.png"/>
 </ResourceDictionary>

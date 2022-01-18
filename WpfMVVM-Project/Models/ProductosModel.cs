@@ -21,7 +21,10 @@ namespace WpfMVVM_Project.Models
             }
         }
 
-        
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
 
         private string id;
         public string _id
@@ -38,7 +41,7 @@ namespace WpfMVVM_Project.Models
 
         public ObservableCollection<string> Proveedor
         {
-            get { return proveedor;  }
+            get { return proveedor; }
             set 
             {
                 proveedor = value;

@@ -27,7 +27,7 @@ namespace WpfMVVM_Project.ViewModels
                 OnPropertyChanged(nameof(listaProveedores));
             }
         }
-        private ProveedoresModel currentProveedores { get; set; }
+        private ProveedoresModel currentProveedores;
 
         public ProveedoresModel CurrentProveedores
         {

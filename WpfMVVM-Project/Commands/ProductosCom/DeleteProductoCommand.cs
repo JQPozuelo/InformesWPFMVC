@@ -7,11 +7,10 @@ using System.Windows;
 using System.Windows.Input;
 using WpfMVVM_Project.Services;
 using WpfMVVM_Project.ViewModels;
-using WpfMVVM_Project.Views;
 
-namespace WpfMVVM_Project.Commands.Proveedores
+namespace WpfMVVM_Project.Commands.ProductosCom
 {
-    class DeleteProveedorCommand : ICommand
+    class DeleteProductoCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -22,21 +21,20 @@ namespace WpfMVVM_Project.Commands.Proveedores
 
         public void Execute(object parameter)
         {
-            
-            MessageBoxResult result = MessageBox.Show("¿Desea borrar este proveedor?", "Borrar", MessageBoxButton.YesNo);
+            MessageBoxResult result = MessageBox.Show("¿Desea borrar este producto?", "Borrar", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    bool borrar = ProveedoresDBHandler.BorrarProveedor(homeViewModel.CurrentProveedores);
+                    bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.CurrentProductos);
                     if (borrar)
                     {
-                        
-                        MessageBox.Show("Se ha borrado el proveedor", "Borrar");
-                       
+
+                        MessageBox.Show("Se ha borrado el producto", "Borrar");
+
                     }
                     else
                     {
-                        MessageBox.Show("No se pudo borrar el proveedor", "Borrar");
+                        MessageBox.Show("No se pudo borrar el producto", "Borrar");
                     }
                     break;
 
@@ -45,10 +43,11 @@ namespace WpfMVVM_Project.Commands.Proveedores
             }
         }
 
-        public HomeViewModel homeViewModel { get; set; }
-        public DeleteProveedorCommand(HomeViewModel homeViewModel)
+        public InfoViewModel infoViewModel;
+
+        public DeleteProductoCommand(InfoViewModel infoViewModel)
         {
-            this.homeViewModel = homeViewModel;
+            this.infoViewModel = infoViewModel;
         }
     }
 }

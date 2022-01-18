@@ -8,23 +8,17 @@
         Title="MainWindow" Height="1050" Width="1400" Background="{StaticResource fondo1}">
     <StackPanel Orientation="Vertical">
         <StackPanel Orientation="Horizontal">
-            <Button Margin="10" Content="Home" Width="120"
+            <Button Margin="10" Content="Proveedores" Width="120"
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="Home"/>
 
-            <Button Margin="10" Content="Info" Width="120"
+            <Button Margin="10" Content="Productos" Width="120"
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="Info"/>
+
 
         </StackPanel>
 
         <ContentControl Content="{Binding SelectedViewModel}"/>
-        <StackPanel Margin="50">
-            <TextBlock Text="Bienvenido al concesionario" FontSize="20" HorizontalAlignment="Center" FontWeight="Bold" Foreground="#FF082CED"/>
-            <Image Source="Resources/Images/img1.jpg" Width="190" Height="90" HorizontalAlignment="Right"/>
-            <Image Source="Resources/Images/img2.jpg" Width="190" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            
-        </StackPanel>
-        
     </StackPanel>
 </Window>

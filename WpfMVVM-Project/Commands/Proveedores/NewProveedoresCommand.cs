@@ -23,7 +23,7 @@ namespace WpfMVVM_Project.Commands.Proveedores
         public void Execute(object parameter)
         {
             HomeView vista = (HomeView)parameter;
-                if (homeViewModel.CurrentProveedores._id is null || homeViewModel.CurrentProveedores._id.Equals(""))
+                if (homeViewModel.CurrentProveedores._id.Equals("") || homeViewModel.CurrentProveedores._id is null)
                 {
                     vista.txtWarning.Text = "No se puede dejar el CIF en blanco";
                 }

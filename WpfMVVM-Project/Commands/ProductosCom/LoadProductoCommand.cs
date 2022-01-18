@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using WpfMVVM_Project.Services;
+using WpfMVVM_Project.Models;
 using WpfMVVM_Project.ViewModels;
 
 namespace WpfMVVM_Project.Commands.ProductosCom
 {
-    class LoadProductosCommand : ICommand
+    class LoadProductoCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -20,15 +20,18 @@ namespace WpfMVVM_Project.Commands.ProductosCom
 
         public void Execute(object parameter)
         {
-           
-                ProductosDBHandler.cargarLista(infoViewModel.ListaProveedores);
-                infoViewModel.ListaProductos = ProductosDBHandler.ObtenerListaProductos();
-          
-            
+            if (parameter is ProductosModel)
+            {
+                
+                ProductosModel productos = (ProductosModel)parameter;
+                infoViewModel.CurrentProductos = (ProductosModel)productos.Clone();
+
+            }
         }
 
-        private InfoViewModel infoViewModel;
-        public LoadProductosCommand(InfoViewModel infoViewModel)
+        public InfoViewModel infoViewModel { set; get; }
+
+        public LoadProductoCommand(InfoViewModel infoViewModel)
         {
             this.infoViewModel = infoViewModel;
         }

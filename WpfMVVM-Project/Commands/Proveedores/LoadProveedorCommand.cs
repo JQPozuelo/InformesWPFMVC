@@ -21,7 +21,7 @@ namespace WpfMVVM_Project.Commands
         public void Execute(object parameter)
         {
             ProveedoresDBHandler.CargarListaAutomatica();
-            homeViewModel.ListaProveedores = ProveedoresDBHandler.ObtenerListaProveedores();
+            homeViewModel.ListaProveedores = ProveedoresDBHandler.cargarListaProveedores();
         }
 
         public HomeViewModel homeViewModel { get; set; }

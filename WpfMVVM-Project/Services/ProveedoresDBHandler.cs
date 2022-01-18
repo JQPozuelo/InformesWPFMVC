@@ -15,25 +15,39 @@ namespace WpfMVVM_Project.Services
 
         public static void CargarListaAutomatica()
         {
-            
+            Random tef = new Random();
+
             for (int i = 0; i < 5; i++)
             {
                 ProveedoresModel pr = new ProveedoresModel();
                 pr._id = "CIF: " + i.ToString();
                 pr.Nombre = "Proveedor: " + i.ToString();
                 pr.Poblacion = "Poblacion" + i.ToString();
-                pr.Telefono = 45689;
+                pr.Telefono = tef.Next(6789, 6990);
                 listaProveedores.Add(pr);
             }
+
         }
 
+        public static ObservableCollection<ProveedoresModel> cargarListaProveedores()
+        {
+            return listaProveedores;
+        }
         public static bool BorrarProveedor(ProveedoresModel proveedores)
         {
             bool borrar = false;
             try
             {
-                listaProveedores.Remove(proveedores);
-                borrar = true;
+                foreach (ProveedoresModel p in listaProveedores)
+                {
+                    if (p._id.Equals(proveedores._id))
+                    {
+                        listaProveedores.Remove(p);
+                        borrar = true;
+                        break;
+                    }
+                }
+                
             }
             catch (Exception ex) { }
             return borrar;
@@ -72,9 +86,18 @@ namespace WpfMVVM_Project.Services
             return okInsertar;
         }
 
-        public static ObservableCollection<ProveedoresModel> ObtenerListaProveedores()
+        private static ObservableCollection<string> listaProveedoresProductos = new ObservableCollection<string>();
+        public static void CargarListaProveedoresProductos()
         {
-            return listaProveedores;
+            foreach (ProveedoresModel p in listaProveedores)
+            {
+                listaProveedoresProductos.Add(p.Nombre);
+            }
+        }
+
+        public static ObservableCollection<string> ObtenerListaProveedoresProductos()
+        {
+            return listaProveedoresProductos;
         }
     }
 }

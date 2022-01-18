@@ -20,10 +20,17 @@ namespace WpfMVVM_Project.Commands.Proveedores
 
         public void Execute(object parameter)
         {
-            ProveedoresModel proveedores = (ProveedoresModel) parameter;
+            /*ProveedoresModel proveedores = (ProveedoresModel) parameter;
 
             homeViewModel.CurrentProveedores = (ProveedoresModel)proveedores.Clone();
-            homeViewModel.SelectedProveedores = (ProveedoresModel)proveedores.Clone();
+            homeViewModel.SelectedProveedores = (ProveedoresModel)proveedores.Clone();*/
+
+            if (parameter is ProveedoresModel)
+            {
+                ProveedoresModel proveedores1 = (ProveedoresModel)parameter;
+                ProveedoresModel clonacion1 = (ProveedoresModel)proveedores1.Clone();
+                homeViewModel.CurrentProveedores = clonacion1;
+            }
         }
 
         public HomeViewModel homeViewModel { set; get; }

@@ -11,7 +11,7 @@ using WpfMVVM_Project.Views;
 
 namespace WpfMVVM_Project.Commands.ProductosCom
 {
-    class NewProductosCommand : ICommand
+    class SaveProductosCommand : ICommand
     {
         public event EventHandler CanExecuteChanged;
 
@@ -22,71 +22,71 @@ namespace WpfMVVM_Project.Commands.ProductosCom
 
         public void Execute(object parameter)
         {
-            InfoView vista = (InfoView)parameter;
+            InfoView vProductos = (InfoView)parameter;
             if (infoViewModel.CurrentProductos._id.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar el codigo de barras en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar el codigo de barras en blanco";
             }
             else if (infoViewModel.CurrentProductos.Bastidor.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar el bastidor en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar el bastidor en blanco";
             }
             else if (infoViewModel.CurrentProductos.Categoria.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar la categoria en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar la categoria en blanco";
             }
             else if (infoViewModel.CurrentProductos.Color.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar el color en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar el color en blanco";
             }
             else if (infoViewModel.CurrentProductos.FechaEntrada.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar la fecha en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar la fecha en blanco";
             }
             else if (infoViewModel.CurrentProductos.Marca.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar la marca en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar la marca en blanco";
             }
             else if (infoViewModel.CurrentProductos.Precio.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar el precio en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar el precio en blanco";
             }
             else if (infoViewModel.CurrentProductos.Stock.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar el stock en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar el stock en blanco";
             }
             else if (infoViewModel.CurrentProductos.Descripcion.Equals(""))
             {
-                vista.txtWarning.Text = "No se puede dejar la descripcion en blanco";
+                vProductos.txtWarning.Text = "No se puede dejar la descripcion en blanco";
             }
             else
             {
-                vista.txtWarning.Text = "";
-                MessageBoxResult result = MessageBox.Show("¿Desea crear este producto?", "Crear", MessageBoxButton.YesNo);
+                vProductos.txtWarning.Text = "";
+                MessageBoxResult result = MessageBox.Show("¿Desea realizar los cambios?", "Modificar", MessageBoxButton.YesNo);
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-
-                        bool okInsertar = ProductosDBHandler.NuevoProducto(infoViewModel.CurrentProductos);
-                        if (okInsertar)
+                        bool okEGuardar = ProductosDBHandler.GuardarProducto(infoViewModel.CurrentProductos);
+                        if (okEGuardar)
                         {
-                            MessageBox.Show("Se ha creado el producto");
+                            MessageBox.Show("Proveedor modificado con exito", "Modificar");
+
                         }
                         else
                         {
-                            MessageBox.Show("Error no se pudo crear el producto");
+                            MessageBox.Show("Error al modificar", "Modificar");
                         }
-
                         break;
+
                     case MessageBoxResult.No:
                         break;
                 }
             }
         }
 
+        public InfoViewModel infoViewModel;
 
-        private InfoViewModel infoViewModel;
-        public NewProductosCommand(InfoViewModel infoViewModel)
+        public SaveProductosCommand(InfoViewModel infoViewModel)
         {
             this.infoViewModel = infoViewModel;
         }
