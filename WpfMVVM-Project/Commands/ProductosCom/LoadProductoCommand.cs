@@ -24,7 +24,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
             {
                 
                 ProductosModel productos = (ProductosModel)parameter;
-                infoViewModel.CurrentProductos = (ProductosModel)productos.Clone();
+                infoViewModel.ProductosModel = (ProductosModel)productos.Clone();
 
             }
         }

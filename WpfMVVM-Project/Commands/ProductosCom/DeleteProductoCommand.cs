@@ -25,7 +25,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.CurrentProductos);
+                    bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.ProductosModel);
                     if (borrar)
                     {
 

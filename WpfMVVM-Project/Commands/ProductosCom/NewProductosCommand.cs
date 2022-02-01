@@ -23,39 +23,39 @@ namespace WpfMVVM_Project.Commands.ProductosCom
         public void Execute(object parameter)
         {
             InfoView vista = (InfoView)parameter;
-            if (infoViewModel.CurrentProductos._id.Equals(""))
+            if (infoViewModel.ProductosModel._id.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar el codigo de barras en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Bastidor.Equals(""))
+            else if (infoViewModel.ProductosModel.Bastidor.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar el bastidor en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Categoria.Equals(""))
+            else if (infoViewModel.ProductosModel.Categoria.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar la categoria en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Color.Equals(""))
+            else if (infoViewModel.ProductosModel.Color.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar el color en blanco";
             }
-            else if (infoViewModel.CurrentProductos.FechaEntrada.Equals(""))
+            else if (infoViewModel.ProductosModel.FechaEntrada.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar la fecha en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Marca.Equals(""))
+            else if (infoViewModel.ProductosModel.Marca.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar la marca en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Precio.Equals(""))
+            else if (infoViewModel.ProductosModel.Precio.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar el precio en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Stock.Equals(""))
+            else if (infoViewModel.ProductosModel.Stock.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar el stock en blanco";
             }
-            else if (infoViewModel.CurrentProductos.Descripcion.Equals(""))
+            else if (infoViewModel.ProductosModel.Descripcion.Equals(""))
             {
                 vista.txtWarning.Text = "No se puede dejar la descripcion en blanco";
             }
@@ -67,7 +67,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
                 {
                     case MessageBoxResult.Yes:
 
-                        bool okInsertar = ProductosDBHandler.NuevoProducto(infoViewModel.CurrentProductos);
+                        bool okInsertar = ProductosDBHandler.NuevoProducto(infoViewModel.ProductosModel);
                         if (okInsertar)
                         {
                             MessageBox.Show("Se ha creado el producto");

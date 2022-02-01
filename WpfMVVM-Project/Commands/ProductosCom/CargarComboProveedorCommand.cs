@@ -20,7 +20,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
         public void Execute(object parameter)
         {
             string proveedores = parameter.ToString();
-            infoViewModel.CurrentProductos.Proveedor.Add(proveedores);
+            //infoViewModel.CurrentProductos.Proveedor.Add(proveedores);
         }
 
         public InfoViewModel infoViewModel;

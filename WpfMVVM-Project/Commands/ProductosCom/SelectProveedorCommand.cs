@@ -30,10 +30,10 @@ namespace WpfMVVM_Project.Commands.ProductosCom
                 {
                     if(pd.Nombre.Equals(campa))
                     {
-                        infoViewModel.ProveedrCif = pd._id;
+                       /* infoViewModel.ProveedrCif = pd._id;
                         infoViewModel.ProveedrNombre = pd.Nombre;
                         infoViewModel.ProveedrPoblacion = pd.Poblacion;
-                        infoViewModel.ProveedrTelefono = pd.Telefono;
+                        infoViewModel.ProveedrTelefono = pd.Telefono;*/
                     }
                     
                 }

@@ -27,17 +27,9 @@ namespace WpfMVVM_Project.Models
         }
 
         private string id;
-        public string _id
-        {
-            get { return id; }
-            set 
-            { 
-                id = value;
-                OnPropertyChanged(nameof(_id));
-            }
-        }
+        public string _id { get { return id; } set { id = value; OnPropertyChanged(nameof(_id)); } }
 
-        private ObservableCollection<string> proveedor;
+        /*private ObservableCollection<string> proveedor;
 
         public ObservableCollection<string> Proveedor
         {
@@ -47,7 +39,7 @@ namespace WpfMVVM_Project.Models
                 proveedor = value;
                 OnPropertyChanged(nameof(Proveedor));
             }
-        }
+        }*/
 
         private string marca;
 
@@ -150,7 +142,7 @@ namespace WpfMVVM_Project.Models
         public ProductosModel()
         {
             fechaEntrada = DateTime.Today;
-            proveedor = new ObservableCollection<string>();
+            //proveedor = new ObservableCollection<string>();
         }
 
     }

@@ -14,12 +14,12 @@ namespace WpfMVVM_Project.ViewModels
     class InfoViewModel : ViewModelBase
     {
 
-        private ObservableCollection<string> listaProveedores { get; set; }
+        /*private ObservableCollection<string> listaProveedores { get; set; }
         public ObservableCollection<string> ListaProveedores
         {
             get { return listaProveedores; }
             set { listaProveedores = value; OnPropertyChanged(nameof(ListaProveedores)); }
-        }
+        }*/
 
         private ObservableCollection<ProductosModel> listaProductos { get; set; }
 
@@ -36,7 +36,7 @@ namespace WpfMVVM_Project.ViewModels
             }
         }
 
-        private string proveedrCif;
+        /*private string proveedrCif;
         public string ProveedrCif
         {
             get { return proveedrCif; }
@@ -78,17 +78,17 @@ namespace WpfMVVM_Project.ViewModels
                 proveedrTelefono = value; 
                 OnPropertyChanged(nameof(ProveedrTelefono)); 
             }
-        }
+        }*/
 
-        private ProductosModel currentProductos { get; set; }
+        private ProductosModel productosModel { get; set; }
 
-        public ProductosModel CurrentProductos
+        public ProductosModel ProductosModel
         {
-            get { return currentProductos; }
+            get { return productosModel; }
             set 
             {
-                currentProductos = value;
-                OnPropertyChanged(nameof(CurrentProductos));
+                productosModel = value;
+                OnPropertyChanged(nameof(ProductosModel));
             }
         }
 
@@ -126,7 +126,7 @@ namespace WpfMVVM_Project.ViewModels
         public ICommand SalirProductoCommand { set; get; }
         public InfoViewModel()
         {
-            CurrentProductos = new ProductosModel();
+            ProductosModel = new ProductosModel();
             NewProductosCommand = new NewProductosCommand(this);
             LoadProductosCommand = new LoadProductosCommand(this);
             LoadProductoCommand = new LoadProductoCommand(this);
@@ -140,14 +140,14 @@ namespace WpfMVVM_Project.ViewModels
 
             ListaProductos = new ObservableCollection<ProductosModel>();
 
-            ListaProveedores = new ObservableCollection<string>() { "Campa 1", "Campa 2", "Campa 3", "Campa 4"};
+            //ListaProveedores = new ObservableCollection<string>() { "Campa 1", "Campa 2", "Campa 3", "Campa 4"};
 
             
 
-            ProveedrCif = "";
+            /*ProveedrCif = "";
             ProveedrNombre = "";
             ProveedrPoblacion = "";
-            ProveedrTelefono = 0;
+            ProveedrTelefono = 0;*/
         }
     }
 }

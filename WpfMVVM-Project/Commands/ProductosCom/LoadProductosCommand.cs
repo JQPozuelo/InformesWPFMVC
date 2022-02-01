@@ -21,7 +21,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
         public void Execute(object parameter)
         {
            
-                ProductosDBHandler.cargarLista(infoViewModel.ListaProveedores);
+                //ProductosDBHandler.cargarLista(infoViewModel.ListaProveedores);
                 infoViewModel.ListaProductos = ProductosDBHandler.ObtenerListaProductos();
           
             

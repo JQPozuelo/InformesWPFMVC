@@ -19,7 +19,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
 
         public void Execute(object parameter)
         {
-            infoViewModel.CurrentProductos = (Models.ProductosModel)infoViewModel.SelectedProductos.Clone();
+            infoViewModel.ProductosModel = (Models.ProductosModel)infoViewModel.SelectedProductos.Clone();
         }
 
         public InfoViewModel infoViewModel;

@@ -18,7 +18,7 @@ namespace WpfMVVM_Project.Services
         //private static ObservableCollection<ProveedoresModel> listaPr = new ObservableCollection<ProveedoresModel>();
 
         private static bool cargado = false;
-        public static void cargarLista(ObservableCollection<string> listaProveedores)
+        /*public static void cargarLista(ObservableCollection<string> listaProveedores)
         {
             Random r = new Random();
             if (cargado == false)
@@ -27,7 +27,7 @@ namespace WpfMVVM_Project.Services
                 {
                     ProductosModel a = new ProductosModel();
                     a._id = i.ToString();
-                    a.Proveedor.Add("Campa " + r.Next(1,4));
+                    //a.Proveedor.Add("Campa " + r.Next(1,4));
                     a.Marca = "Marca " + i.ToString();
                     a.Categoria = "Categoria " + i.ToString();
                     a.Color = "Color " + i.ToString();
@@ -41,7 +41,7 @@ namespace WpfMVVM_Project.Services
                 }
             }
 
-        }
+        }*/
         public static bool NuevoProducto(ProductosModel productos)
         {
             bool okInsertar = false;
@@ -151,7 +151,7 @@ namespace WpfMVVM_Project.Services
                     e.Color = productos.Color;
                     e.Descripcion = productos.Descripcion;
                     e.Precio = productos.Precio;
-                    e.Proveedor = productos.Proveedor;
+                    //e.Proveedor = productos.Proveedor;
                     e.Marca = productos.Marca;
                     e.Stock = productos.Stock;
                     okEGuardar = true;
