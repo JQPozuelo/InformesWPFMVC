@@ -41,6 +41,19 @@ namespace WpfMVVM_Project.Models
             }
         }*/
 
+        private string proveedor;
+
+        public string Proveedor
+        {
+            get { return proveedor; }
+            set 
+            {
+                proveedor = value;
+                OnPropertyChanged(nameof(Proveedor));
+            }
+        }
+
+
         private string marca;
 
         public string Marca

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using WpfMVVM_Project.Models;
@@ -42,7 +44,7 @@ namespace WpfMVVM_Project.Services
             }
 
         }*/
-        public static bool NuevoProducto(ProductosModel productos)
+        public static bool NuevoProducto2(ProductosModel productos)
         {
             bool okInsertar = false;
             try
@@ -103,7 +105,7 @@ namespace WpfMVVM_Project.Services
             return lista;
         }
 
-        public static ObservableCollection<ProductosModel> ObtenerListaProductos()
+        public static ObservableCollection<ProductosModel> ObtenerListaProductos2()
         {
             return listaProductos;
         }
@@ -162,6 +164,67 @@ namespace WpfMVVM_Project.Services
 
             return okEGuardar;
         }
+        public static async Task<bool> NuevoProducto(ProductosModel productos)
+        {
+            bool okinsertar = false;
+
+            var handler = new WinHttpHandler();
+
+            var client = new HttpClient(handler);
+
+            var request = new HttpRequestMessage(HttpMethod.Post, "http://localhost:5000/products");
+
+            var data = JsonConvert.SerializeObject(productos);
+
+            request.Headers.Add("Accept", "application/json");
+
+            request.Content = new StringContent(data.ToString(), Encoding.UTF8, "application/json");
+
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseJSON = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseJSON);
+                okinsertar = true;
+            }
+
+            return okinsertar;
+        }
+
+        public static async Task<ObservableCollection<ProductosModel>> ObtenerListaProductos()
+        {
+            ObservableCollection<ProductosModel> listaProductos = new ObservableCollection<ProductosModel>();
+
+            var handler = new WinHttpHandler();
+
+            var client = new HttpClient(handler);
+
+            var request = new HttpRequestMessage(HttpMethod.Get, "http://localhost:5000/products");
+
+            request.Headers.Add("Accept", "application/json");
+
+            var queryString = new Dictionary<string, string>();
+            queryString.Add("_idE", "all");
+
+            var data = JsonConvert.SerializeObject(queryString);
+
+            request.Content = new StringContent(data.ToString(), Encoding.UTF8, "application/json");
+
+            var response = await client.SendAsync(request);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseJSON = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseJSON);
+                Dictionary<string, string> responseDict = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseJSON);
+                listaProductos = JsonConvert.DeserializeObject<ObservableCollection<ProductosModel>>(responseDict["response"]);
+            }
+
+            return await Task.FromResult(listaProductos);
+
+        }
+
     }
 }
 

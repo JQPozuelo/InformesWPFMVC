@@ -65,37 +65,35 @@
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos._id, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel._id, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivadoId}"/>
                         <ComboBox x:Name="cargarProveedores" Width="160" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding CurrentProductos.Proveedor}"
-                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}" SelectionChanged="cargarProveedores_SelectionChanged">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding SelectProveedorCommand}" CommandParameter="{Binding ElementName=cargarProveedores, Path=SelectedItem}"/>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding ProductosModel.Proveedor}"
+                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}">
+                            <ComboBoxItem Content="Proveedor 1"/>
+                            <ComboBoxItem Content="Proveedor 2"/>
+                            <ComboBoxItem Content="Proveedor 3"/>
                         </ComboBox>
                         <TextBox materialDesign:HintAssist.Hint="Categoria" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Categoria, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Categoria, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                         <TextBox materialDesign:HintAssist.Hint="Marca" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Marca, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Marca, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                         <TextBox materialDesign:HintAssist.Hint="Color" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Color, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Color, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                         <TextBlock x:Name="txtWarning" Text="Warning" Foreground="Blue" TextAlignment="Center" FontSize="5" FontWeight="Bold"/>
                     </StackPanel>
@@ -112,35 +110,35 @@
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Bastidor, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Bastidor, UpdateSourceTrigger=PropertyChanged}"
                                      IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                             <TextBox materialDesign:HintAssist.Hint="Descripción" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Descripcion, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Descripcion, UpdateSourceTrigger=PropertyChanged}"
                                      IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                             <TextBox materialDesign:HintAssist.Hint="Precio" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Precio, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Precio, UpdateSourceTrigger=PropertyChanged}"
                                      IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                             <DatePicker materialDesign:HintAssist.Hint="Fecha de entrada" 
                                     Width="160" 
                                     HorizontalContentAlignment="Left"
                                     FontSize="12"
                                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}"
-                                    SelectedDate="{Binding CurrentProductos.FechaEntrada, StringFormat=dd/MM/yyyy}"
+                                    SelectedDate="{Binding ProductosModel.FechaEntrada, StringFormat=dd/MM/yyyy}"
                                         IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                             <TextBox materialDesign:HintAssist.Hint="Stock" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
                                  materialDesign:TextFieldAssist.HasClearButton="True"
                                  Width="160"
-                                 Text="{Binding CurrentProductos.Stock, UpdateSourceTrigger=PropertyChanged}"
+                                 Text="{Binding ProductosModel.Stock, UpdateSourceTrigger=PropertyChanged}"
                                      IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}"/>
                         </StackPanel>
                     </materialDesign:Card>
