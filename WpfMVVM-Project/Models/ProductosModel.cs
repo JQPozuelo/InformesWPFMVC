@@ -41,15 +41,15 @@ namespace WpfMVVM_Project.Models
             }
         }*/
 
-        private string proveedor;
+        private string proveedor1;
 
-        public string Proveedor
+        public string Proveedor1
         {
-            get { return proveedor; }
+            get { return proveedor1; }
             set 
             {
-                proveedor = value;
-                OnPropertyChanged(nameof(Proveedor));
+                proveedor1 = value;
+                OnPropertyChanged(nameof(Proveedor1));
             }
         }
 

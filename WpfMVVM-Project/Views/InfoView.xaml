@@ -68,7 +68,7 @@
                                  Text="{Binding ProductosModel._id, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivadoId}"/>
                         <ComboBox x:Name="cargarProveedores" Width="160" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding ProductosModel.Proveedor}"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding ProductosModel.Proveedor1}"
                                   IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}">
                             <ComboBoxItem Content="Proveedor 1"/>
                             <ComboBoxItem Content="Proveedor 2"/>

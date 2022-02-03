@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfMVVM_Project.Models;
 using WpfMVVM_Project.Services;
 using WpfMVVM_Project.ViewModels;
 
@@ -19,14 +20,19 @@ namespace WpfMVVM_Project.Commands.ProductosCom
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             MessageBoxResult result = MessageBox.Show("¿Desea borrar este producto?", "Borrar", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.Yes:
-                    bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.ProductosModel);
-                    if (borrar)
+                    //bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.ProductosModel);
+                    RequestModel requestModel = new RequestModel();
+                    requestModel.route = "/students";
+                    requestModel.method = "DELETE";
+                    requestModel.data = infoViewModel.ProductosModel._id;
+                    ResponseModel responseModel = await APIHandler.ConsultAPI(requestModel);
+                    if (responseModel.resultOk)
                     {
 
                         MessageBox.Show("Se ha borrado el producto", "Borrar");

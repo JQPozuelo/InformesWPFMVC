@@ -28,7 +28,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
             //infoViewModel.ListaProductos = await ProductosDBHandler.ObtenerListaProductos();
 
             RequestModel requestModel = new RequestModel();
-            requestModel.route = "/students";
+            requestModel.route = "/products";
             requestModel.method = "GET";
             requestModel.data = "all";
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfMVVM_Project.Models;
 using WpfMVVM_Project.Services;
 using WpfMVVM_Project.ViewModels;
 using WpfMVVM_Project.Views;
@@ -20,7 +21,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
             return true;
         }
 
-        public void Execute(object parameter)
+        public async void Execute(object parameter)
         {
             InfoView vProductos = (InfoView)parameter;
             if (infoViewModel.ProductosModel._id.Equals(""))
@@ -66,8 +67,13 @@ namespace WpfMVVM_Project.Commands.ProductosCom
                 switch (result)
                 {
                     case MessageBoxResult.Yes:
-                        bool okEGuardar = ProductosDBHandler.GuardarProducto(infoViewModel.ProductosModel);
-                        if (okEGuardar)
+                        //bool okEGuardar = ProductosDBHandler.GuardarProducto(infoViewModel.ProductosModel);
+                        RequestModel requestModel = new RequestModel();
+                        requestModel.route = "/students";
+                        requestModel.method = "PUT";
+                        requestModel.data = infoViewModel.ProductosModel;
+                        ResponseModel responseModel = await APIHandler.ConsultAPI(requestModel);
+                        if (responseModel.resultOk)
                         {
                             MessageBox.Show("Proveedor modificado con exito", "Modificar");
 
