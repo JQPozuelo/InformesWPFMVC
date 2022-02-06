@@ -69,7 +69,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
                     case MessageBoxResult.Yes:
                         //bool okEGuardar = ProductosDBHandler.GuardarProducto(infoViewModel.ProductosModel);
                         RequestModel requestModel = new RequestModel();
-                        requestModel.route = "/students";
+                        requestModel.route = "/products";
                         requestModel.method = "PUT";
                         requestModel.data = infoViewModel.ProductosModel;
                         ResponseModel responseModel = await APIHandler.ConsultAPI(requestModel);

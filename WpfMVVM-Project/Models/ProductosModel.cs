@@ -29,19 +29,19 @@ namespace WpfMVVM_Project.Models
         private string id;
         public string _id { get { return id; } set { id = value; OnPropertyChanged(nameof(_id)); } }
 
-        /*private ObservableCollection<string> proveedor;
+        /*private ObservableCollection<string> proveedor1;
 
-        public ObservableCollection<string> Proveedor
+        public ObservableCollection<string> Proveedor1
         {
-            get { return proveedor; }
+            get { return proveedor1; }
             set 
             {
-                proveedor = value;
-                OnPropertyChanged(nameof(Proveedor));
+                proveedor1 = value;
+                OnPropertyChanged(nameof(Proveedor1));
             }
         }*/
 
-        private string proveedor1;
+        /*private string proveedor1;
 
         public string Proveedor1
         {
@@ -51,7 +51,7 @@ namespace WpfMVVM_Project.Models
                 proveedor1 = value;
                 OnPropertyChanged(nameof(Proveedor1));
             }
-        }
+        }*/
 
 
         private string marca;

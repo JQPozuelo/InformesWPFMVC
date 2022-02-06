@@ -153,7 +153,7 @@ namespace WpfMVVM_Project.Services
                     e.Color = productos.Color;
                     e.Descripcion = productos.Descripcion;
                     e.Precio = productos.Precio;
-                    e.Proveedor1 = productos.Proveedor1;
+                    //e.Proveedor1 = productos.Proveedor1;
                     e.Marca = productos.Marca;
                     e.Stock = productos.Stock;
                     okEGuardar = true;

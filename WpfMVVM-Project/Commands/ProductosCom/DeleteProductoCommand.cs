@@ -28,7 +28,7 @@ namespace WpfMVVM_Project.Commands.ProductosCom
                 case MessageBoxResult.Yes:
                     //bool borrar = ProductosDBHandler.borrarProducto(infoViewModel.ProductosModel);
                     RequestModel requestModel = new RequestModel();
-                    requestModel.route = "/students";
+                    requestModel.route = "/products";
                     requestModel.method = "DELETE";
                     requestModel.data = infoViewModel.ProductosModel._id;
                     ResponseModel responseModel = await APIHandler.ConsultAPI(requestModel);

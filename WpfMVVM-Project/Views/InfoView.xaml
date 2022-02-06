@@ -43,7 +43,7 @@
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Código de barras" DisplayMemberBinding="{Binding Path=_id}" />
-                            <GridViewColumn Header="Proveedores" DisplayMemberBinding="{Binding Path=Proveedor[0]}"/>
+                            
                             <GridViewColumn Header="Categoria" DisplayMemberBinding="{Binding Path=Categoria}"/>
                             <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Path=Marca}"/>
                             <GridViewColumn Header="Color" DisplayMemberBinding="{Binding Path=Color}"/>
@@ -67,13 +67,7 @@
                                  Width="160"
                                  Text="{Binding ProductosModel._id, UpdateSourceTrigger=PropertyChanged}"
                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivadoId}"/>
-                        <ComboBox x:Name="cargarProveedores" Width="160" HorizontalContentAlignment="Left" materialDesign:HintAssist.Hint="Proveedores" FontSize="12" 
-                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" ItemsSource="{Binding ProductosModel.Proveedor1}"
-                                  IsEnabled="{Binding ElementName=vProductos, Path=EditarActivado}">
-                            <ComboBoxItem Content="Proveedor 1"/>
-                            <ComboBoxItem Content="Proveedor 2"/>
-                            <ComboBoxItem Content="Proveedor 3"/>
-                        </ComboBox>
+                        
                         <TextBox materialDesign:HintAssist.Hint="Categoria" Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  VerticalAlignment="Center"
                                  FontSize="12"
@@ -171,7 +165,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="Escriba la palabra por la que desea buscar: " Margin="10" HorizontalAlignment="Center" FontWeight="Black"/>
-                    <TextBox Grid.Row="1" Background="WhiteSmoke" Margin="10" Text="{Binding pB}"/>
+                    <TextBox x:Name="txtBuscar" Grid.Row="1" Background="WhiteSmoke" Margin="10" Text="{Binding pB}"/>
                     <Button Grid.Row="2" Content="Buscar" Width="100" Height="50" Command="{Binding BuscarPalabraCommand}" CommandParameter="buscar"
                             Background="Blue"/>
                 </Grid>
