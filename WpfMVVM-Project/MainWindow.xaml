@@ -16,7 +16,9 @@
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="Info"/>
 
-
+            <Button Margin="10" Content="Formulario" Width="120"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Formulario"/>
         </StackPanel>
 
         <ContentControl Content="{Binding SelectedViewModel}"/>

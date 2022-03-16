@@ -29,7 +29,11 @@ namespace WpfMVVM_Project.Commands
             {
                 MainViewModel.SelectedViewModel = new InfoViewModel();
             }
-            
+            else if (vista.Equals("Formulario"))
+            {
+                MainViewModel.SelectedViewModel = new FormularioViewModel();
+            }
+
         }
 
         public MainViewModel MainViewModel { set; get; }

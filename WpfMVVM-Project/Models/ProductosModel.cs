@@ -150,13 +150,34 @@ namespace WpfMVVM_Project.Models
                 OnPropertyChanged(nameof(Stock));
             }
         }
-        
+
+        public string Nombre
+        {
+            get => _id;
+        }
+
+
+        public override string ToString()
+        {
+            return "ID: " + _id + ", " + Descripcion;
+        }
 
         public ProductosModel()
         {
-            fechaEntrada = DateTime.Today;
-            //proveedor = new ObservableCollection<string>();
+            
         }
-
+        public ProductosModel(string id, string categoria, string marca, string color, string bastidor, string descripcion, double precio, DateTime fechaEntrada, int stock)
+        {
+            this.id = id;
+            //this.proveedores = proveedores;
+            this.categoria = categoria;
+            this.marca = marca;
+            this.color = color;
+            this.bastidor = bastidor;
+            this.descripcion = descripcion;
+            this.precio = precio;
+            this.fechaEntrada = fechaEntrada;
+            this.stock = stock;
+        }
     }
 }
