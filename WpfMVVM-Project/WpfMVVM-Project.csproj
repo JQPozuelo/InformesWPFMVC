@@ -123,6 +123,8 @@
     </ApplicationDefinition>
     <Compile Include="Commands\FacturaCom\AddProductCommand.cs" />
     <Compile Include="Commands\FacturaCom\ComboFormulario.cs" />
+    <Compile Include="Commands\FacturaCom\EliminarProductoCommand.cs" />
+    <Compile Include="Commands\FacturaCom\GenerarFacturaCommand.cs" />
     <Compile Include="Commands\FacturaCom\UpdateClienteCommand.cs" />
     <Compile Include="Commands\ProductosCom\BuscarPalabraCommand.cs" />
     <Compile Include="Commands\ProductosCom\BuscarProveedoresCommand.cs" />
@@ -227,6 +229,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InformeClienteProducto.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

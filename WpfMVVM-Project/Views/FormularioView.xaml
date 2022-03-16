@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WpfMVVM_Project.Views"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1500" Background="BlueViolet">
+             d:DesignHeight="850" d:DesignWidth="1500" Background="Yellow">
 
 
     <i:Interaction.Triggers>
@@ -22,7 +22,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="180"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="175"/>
             <RowDefinition Height="180"/>
@@ -34,14 +34,18 @@
             <DatePicker SelectedDate="{Binding Factura.FechaFactura, StringFormat=dd-MM-yyyy}" Width="250" Height="40"/> 
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
-            <ComboBox Width="400" Height="60" SelectedItem="{Binding Factura.ClienteFactura}" ItemsSource="{Binding ListaClientes}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="DropDownOpened">
-                        <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="formulario"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </ComboBox>
+            <materialDesgin:Card Width="150">
+                <StackPanel>
+                    <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
+                    <ComboBox Width="400" Height="60" SelectedItem="{Binding Factura.ClienteFactura}" ItemsSource="{Binding ListaClientes}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="DropDownOpened">
+                                <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="formulario"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                </StackPanel>
+            </materialDesgin:Card>
         </StackPanel>
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
@@ -97,11 +101,11 @@
 
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=ProductosModel._id}"/>
-                            <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Path=ProductosModel.Marca}"/>
-                            <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding Path=ProductosModel.Descripcion}"/>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Path=ProductoModel._id}"/>
+                            <GridViewColumn Header="Marca" DisplayMemberBinding="{Binding Path=ProductoModel.Marca}"/>
+                            <GridViewColumn Header="Descripción" DisplayMemberBinding="{Binding Path=ProductoModel.Descripcion}"/>
                             <GridViewColumn Header="Cantidad" DisplayMemberBinding="{Binding Path=Cantidad}"/>
-                            <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding Path=ProductosModel.Precio}"/>
+                            <GridViewColumn Header="Precio" DisplayMemberBinding="{Binding Path=ProductoModel.Precio}"/>
                             <GridViewColumn Header="Total" DisplayMemberBinding="{Binding Path=Total}"/>
                         </GridView>
                     </ListView.View>
@@ -113,7 +117,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <!--<Button Content="Eliminar" Width="200" Height="60" Command="{Binding EliminarProductoDeFacturaCommand}" CommandParameter="{Binding ElementName=productosFacturaListView, Path=SelectedItem}"/>-->
+                <Button Content="Eliminar" Width="200" Height="60" Command="{Binding EliminarProductoCommand}" CommandParameter="{Binding ElementName=productosFacturaListView, Path=SelectedItem}"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
@@ -122,7 +126,7 @@
                 <TextBlock Text="{Binding Factura.PrecioTotalFactura}" Width="100"/>
             </StackPanel>
 
-            <!--<Button Width="200" Content="CREAR FACTURA" Command="{Binding GuardarFacturaCommand}"/>-->
+            <Button Width="200" Content="CREAR FACTURA" Command="{Binding GenerarFacturaCommand}"/>
         </StackPanel>
     </Grid>
     

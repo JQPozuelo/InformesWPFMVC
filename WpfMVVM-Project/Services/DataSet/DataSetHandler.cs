@@ -16,6 +16,40 @@ namespace WpfMVVM_Project.Services.DataSet
         private static FacturaTableAdapter facturasAdapter = new FacturaTableAdapter();
         private static DetalleFacturaTableAdapter detallesfacturaAdapter = new DetalleFacturaTableAdapter();
 
+        public static bool insertarFactura(FacturaModel factura)
+        {
+            try
+            {
+                facturasAdapter.Insert(factura.ClienteFactura.DNI,factura.FechaFactura, (decimal?)factura.PrecioTotalFactura);
+                DataRow ultimoRegistro = facturasAdapter.GetData().Last();
+                int idUltimaFactura = (int)ultimoRegistro["idFactura"];
+                foreach (ListaProductoModel p in factura.ListaProductosCantidadFactura)
+                { 
+                    detallesfacturaAdapter.Insert(idUltimaFactura, p.ProductoModel._id, p.ProductoModel.Descripcion ,p.Cantidad, p.ProductoModel.Precio);
+                }
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+
+        }
+        /*public static string GetDataByDNIC(string dni)
+        {
+            try
+            {
+                DataTable clienteDT = clienteAdapter.GetDataByDNIC(dni);
+                DataRow clienteRow = clienteDT.Rows[0];
+                string dniCliente = (string)clienteRow["DNI"];
+                return dniCliente;
+            }
+            catch
+            {
+                return "";
+            }
+        }*/
 
         public static ObservableCollection<ClienteModel> getAllClientes()
         {

@@ -16,7 +16,8 @@ namespace WpfMVVM_Project.ViewModels
         public ICommand UpdateClienteCommand { get; set; }
         public ICommand ComboFormulario { get; set; }
         public ICommand AddProductCommand { get; set; }
-
+        public ICommand GenerarFacturaCommand { get; set; }
+        public ICommand EliminarProductoCommand { get; set; }
 
         private ObservableCollection<ProductosModel> listaProductos { get; set; }
         public ObservableCollection<ProductosModel> ListaProductos
@@ -99,6 +100,16 @@ namespace WpfMVVM_Project.ViewModels
             UpdateClienteCommand = new UpdateClienteCommand(this);
             AddProductCommand = new AddProductCommand(this);
             ComboFormulario = new ComboFormulario(this);
+            EliminarProductoCommand = new EliminarProductoCommand(this);
+            GenerarFacturaCommand = new GenerarFacturaCommand(this);
+
+            Factura = new FacturaModel();
+            ListaClientes = new ObservableCollection<ClienteModel>();
+            factura.ClienteFactura = new ClienteModel();
+            ProductoM = new ListaProductoModel();
+            ListaProductosC = new ObservableCollection<ListaProductoModel>();
+            Factura.FechaFactura = DateTime.Today;
+            ProductoM.Cantidad = 1;
         }
     }
 }
