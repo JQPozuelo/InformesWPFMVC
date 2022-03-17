@@ -37,7 +37,7 @@
             <materialDesgin:Card Width="150">
                 <StackPanel>
                     <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
-                    <ComboBox Width="400" Height="60" SelectedItem="{Binding Factura.ClienteFactura}" ItemsSource="{Binding ListaClientes}">
+                    <ComboBox Width="400" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="DropDownOpened">
                                 <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="formulario"/>
@@ -74,7 +74,7 @@
 
             <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Escoge un producto" VerticalAlignment="Center"/>
-                <ComboBox Width="400" Height="40" FontSize="15" HorizontalContentAlignment="Center" ItemsSource="{Binding ListaProductos}" SelectedItem="{Binding ProductoM.ProductoModel, UpdateSourceTrigger=PropertyChanged}"/>
+                <ComboBox x:Name="Combo" Width="400" Height="40" FontSize="15" HorizontalContentAlignment="Center" ItemsSource="{Binding ListaProductos}" SelectedItem="{Binding ProductoM.ProductoModel, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
             <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
@@ -82,7 +82,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Añadir" Width="200" Height="60" Command="{Binding AddProductCommand}" CommandParameter="{Binding CurrentProducto}"/>
+                <Button Content="Añadir" Width="200" Height="60" Command="{Binding AddProductCommand}" CommandParameter="{Binding ElementName=Combo}"/>
             </StackPanel>
         </Grid>
 

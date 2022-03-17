@@ -63,6 +63,18 @@ namespace WpfMVVM_Project.ViewModels
             }
         }
 
+        private ClienteModel clienteM { get; set; }
+        public ClienteModel ClienteM
+        {
+            get { return clienteM; }
+            set
+            {
+                clienteM = value;
+                OnPropertyChanged(nameof(ClienteM));
+            }
+        }
+
+
         private FacturaModel factura { get; set; }
         public FacturaModel Factura
         {
@@ -105,7 +117,7 @@ namespace WpfMVVM_Project.ViewModels
 
             Factura = new FacturaModel();
             ListaClientes = new ObservableCollection<ClienteModel>();
-            factura.ClienteFactura = new ClienteModel();
+            ClienteM = new ClienteModel();
             ProductoM = new ListaProductoModel();
             ListaProductosC = new ObservableCollection<ListaProductoModel>();
             Factura.FechaFactura = DateTime.Today;

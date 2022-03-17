@@ -37,7 +37,7 @@ namespace WpfMVVM_Project.Commands.FacturaCom
                 formularioViewModel.ListaProductosC.Add((ListaProductoModel)formularioViewModel.ProductoM.Clone());
             }
 
-            formularioViewModel.Factura.PrecioTotalFactura = formularioViewModel.Factura.PrecioTotalFactura + formularioViewModel.ProductoM.Cantidad * formularioViewModel.ProductoM.ProductoModel.Precio;
+            formularioViewModel.Factura.PrecioTotalFactura = formularioViewModel.Factura.PrecioTotalFactura + formularioViewModel.ProductoM.Total;
         }
 
         private FormularioViewModel formularioViewModel { set; get; }

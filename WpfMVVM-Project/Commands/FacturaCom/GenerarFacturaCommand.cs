@@ -22,6 +22,7 @@ namespace WpfMVVM_Project.Commands.FacturaCom
 
         public void Execute(object parameter)
         {
+            ClienteModel cliente = formularioViewModel.ClienteM;
             int numProductosSeleccionados = formularioViewModel.ListaProductosC.Count();
             if (numProductosSeleccionados <= 0)
             {
@@ -38,7 +39,7 @@ namespace WpfMVVM_Project.Commands.FacturaCom
                 else
                 {
                     formularioViewModel.Factura.ClienteFactura.DNI = dni;*/
-                    bool insertarOK = DataSetHandler.insertarFactura(formularioViewModel.Factura);
+                    bool insertarOK = DataSetHandler.insertarFactura(cliente.DNI, formularioViewModel.Factura.FechaFactura, formularioViewModel.Factura.PrecioTotalFactura, formularioViewModel.ListaProductosC);
                     if (!insertarOK)
                     {
                         MessageBox.Show("No se ha podido insertar");

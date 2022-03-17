@@ -16,14 +16,14 @@ namespace WpfMVVM_Project.Services.DataSet
         private static FacturaTableAdapter facturasAdapter = new FacturaTableAdapter();
         private static DetalleFacturaTableAdapter detallesfacturaAdapter = new DetalleFacturaTableAdapter();
 
-        public static bool insertarFactura(FacturaModel factura)
+        public static bool insertarFactura(string dNI, DateTime fechaFactura, double totalFactura, ObservableCollection<ListaProductoModel> listaProductosC)
         {
             try
             {
-                facturasAdapter.Insert(factura.ClienteFactura.DNI,factura.FechaFactura, (decimal?)factura.PrecioTotalFactura);
+                facturasAdapter.Insert(dNI, fechaFactura, (decimal?)totalFactura);
                 DataRow ultimoRegistro = facturasAdapter.GetData().Last();
-                int idUltimaFactura = (int)ultimoRegistro["idFactura"];
-                foreach (ListaProductoModel p in factura.ListaProductosCantidadFactura)
+                int idUltimaFactura = (int)ultimoRegistro["Identificador"];
+                foreach (ListaProductoModel p in listaProductosC)
                 { 
                     detallesfacturaAdapter.Insert(idUltimaFactura, p.ProductoModel._id, p.ProductoModel.Descripcion ,p.Cantidad, p.ProductoModel.Precio);
                 }
@@ -36,20 +36,26 @@ namespace WpfMVVM_Project.Services.DataSet
             }
 
         }
-        /*public static string GetDataByDNIC(string dni)
+
+        /*internal static bool insertarFactura(string dNI, DateTime fechaFactura, double totalFactura, ObservableCollection<ListaProductoModel> listaProductosC)
         {
-            try
-            {
-                DataTable clienteDT = clienteAdapter.GetDataByDNIC(dni);
-                DataRow clienteRow = clienteDT.Rows[0];
-                string dniCliente = (string)clienteRow["DNI"];
-                return dniCliente;
-            }
-            catch
-            {
-                return "";
-            }
+            throw new NotImplementedException();
         }*/
+
+        /*public static string GetDataByDNIC(string dni)
+            {
+               try
+               {
+                   DataTable clienteDT = clienteAdapter.GetDataByDNIC(dni);
+                   DataRow clienteRow = clienteDT.Rows[0];
+                   string dniCliente = (string)clienteRow["DNI"];
+                   return dniCliente;
+               }
+               catch
+               {
+                   return "";
+               }
+            }*/
 
         public static ObservableCollection<ClienteModel> getAllClientes()
         {
