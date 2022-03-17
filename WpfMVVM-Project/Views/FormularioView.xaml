@@ -34,7 +34,7 @@
             <DatePicker SelectedDate="{Binding Factura.FechaFactura, StringFormat=dd-MM-yyyy}" Width="250" Height="40"/> 
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <materialDesgin:Card Width="150">
+            <materialDesgin:Card Width="600" Height="120">
                 <StackPanel>
                     <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
                     <ComboBox Width="400" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
@@ -59,7 +59,7 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
+            
             <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
                 <TextBlock Text="Añadir Producto" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
             </StackPanel>
