@@ -30,15 +30,15 @@ namespace WpfMVVM_Project.Commands.FacturaCom
             }
             else
             {
-                /*formularioViewModel.Factura.ListaProductosCantidadFactura = formularioViewModel.ListaProductosC;
-                string dni = DataSetHandler.GetDataByDNIC(formularioViewModel.Factura.ClienteFactura.DNI);
+                formularioViewModel.Factura.ListaProductosCantidadFactura = formularioViewModel.ListaProductosC;
+                string dni = DataSetHandler.GetDataByDniC(formularioViewModel.ClienteM.DNI);
                 if (dni.Equals(""))
                 {
                     MessageBox.Show("Necesitas seleccionar un cliente");
                 }
                 else
                 {
-                    formularioViewModel.Factura.ClienteFactura.DNI = dni;*/
+                    formularioViewModel.ClienteM.DNI = dni;
                     bool insertarOK = DataSetHandler.insertarFactura(cliente.DNI, formularioViewModel.Factura.FechaFactura, formularioViewModel.Factura.PrecioTotalFactura, formularioViewModel.ListaProductosC);
                     if (!insertarOK)
                     {
@@ -49,7 +49,7 @@ namespace WpfMVVM_Project.Commands.FacturaCom
                         MessageBox.Show("La Factura se ha registrado correctamente");
                         formularioViewModel.Factura = new FacturaModel();
                     }
-                //}
+                }
             }
         }
         private FormularioViewModel formularioViewModel { set; get; }

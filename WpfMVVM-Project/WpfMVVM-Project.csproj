@@ -123,6 +123,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\FacturaCom\AddProductCommand.cs" />
     <Compile Include="Commands\FacturaCom\ComboFormulario.cs" />
+    <Compile Include="Commands\FacturaCom\DniClienteConsultCommand.cs" />
     <Compile Include="Commands\FacturaCom\EliminarProductoCommand.cs" />
     <Compile Include="Commands\FacturaCom\GenerarFacturaCommand.cs" />
     <Compile Include="Commands\FacturaCom\UpdateClienteCommand.cs" />
@@ -164,10 +165,12 @@
     <Compile Include="Services\ProductosDBHandler.cs" />
     <Compile Include="Services\ProveedoresDBHandler.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="ViewModels\ConsultasViewModel.cs" />
     <Compile Include="ViewModels\FormularioViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\InfoViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\ReportViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\ConsultasView.xaml.cs">
       <DependentUpon>ConsultasView.xaml</DependentUpon>
@@ -180,6 +183,9 @@
     </Compile>
     <Compile Include="Views\InfoView.xaml.cs">
       <DependentUpon>InfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -214,6 +220,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReportView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

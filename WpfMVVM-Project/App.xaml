@@ -19,6 +19,14 @@
                 <views:FormularioView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewmodels:ConsultasViewModel}">
+                <views:ConsultasView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:ReportViewModel}">
+                <views:ReportView/>
+            </DataTemplate>
+
 
 
             <ResourceDictionary.MergedDictionaries>

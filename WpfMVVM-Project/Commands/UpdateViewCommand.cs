@@ -33,15 +33,23 @@ namespace WpfMVVM_Project.Commands
             {
                 MainViewModel.SelectedViewModel = new FormularioViewModel();
             }
-
+            else if (vista.Equals("Consultas"))
+            {
+                MainViewModel.SelectedViewModel = new ConsultasViewModel(this);
+            }
+            else if (vista.Equals("Reports"))
+            {
+                MainViewModel.SelectedViewModel = reportViewModel;
+            }
         }
 
         public MainViewModel MainViewModel { set; get; }
 
+        public ReportViewModel reportViewModel { set; get; }
         public UpdateViewCommand(MainViewModel mainViewModel)
         {
             MainViewModel = mainViewModel;
-            
+            reportViewModel = new ReportViewModel(); 
         }
     }
 }

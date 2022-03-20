@@ -19,8 +19,12 @@
             <Button Margin="10" Content="Formulario" Width="120"
                     Command="{Binding UpdateViewCommand}"
                     CommandParameter="Formulario"/>
+            
+            <Button Margin="10" Content="Consultas" Width="120"
+                    Command="{Binding UpdateViewCommand}"
+                    CommandParameter="Consultas"/>
         </StackPanel>
 
-        <ContentControl Content="{Binding SelectedViewModel}"/>
+        <ContentControl Content="{Binding SelectedViewModel}" Height="700"/>
     </StackPanel>
 </Window>

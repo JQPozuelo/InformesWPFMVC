@@ -2,11 +2,81 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesgin="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WpfMVVM_Project.Views"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
-    </Grid>
+             d:DesignHeight="530" d:DesignWidth="800" Background="Yellow">
+
+    <StackPanel>
+        <StackPanel>
+            <materialDesgin:Card Width="790" Height="50">
+                <StackPanel>
+                    <TextBlock Text="Consultas de facturas" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                </StackPanel>
+            </materialDesgin:Card>
+        </StackPanel>
+
+        <StackPanel Margin="0,10,0,0">
+            <materialDesgin:Card Width="790" Height="105">
+                <StackPanel>
+                    <TextBlock Text="Consulta de factura por Cliente" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                    <ComboBox Width="300" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="DropDownOpened">
+                                <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Consultas"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,80,0" Cursor="Hand" Command="{Binding DniClienteConsultCommand}"/>
+                    <TextBlock Text="Cliente" HorizontalAlignment="Left" Margin="100,-30,0,50" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+            </materialDesgin:Card>
+        </StackPanel>
+
+        <StackPanel Margin="0,10,0,0">
+            <materialDesgin:Card Width="790" Height="105">
+                <StackPanel>
+                    <TextBlock Text="Consulta de factura por Nº" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                    <TextBox Width="300" Margin="0,30,0,0"/>
+                    <TextBlock Text="Nº" HorizontalAlignment="Left" Margin="180,-26,0,50" FontSize="20" FontWeight="Bold"/>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-140,80,0"/>
+                </StackPanel>
+            </materialDesgin:Card>
+        </StackPanel>
+
+        <StackPanel Margin="0,10,0,0">
+            <materialDesgin:Card Width="790" Height="105">
+                <StackPanel>
+                    <TextBlock Text="Consulta de factura en una fecha" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                    <DatePicker Width="300" SelectedDate="{Binding FechaSL}" Margin="70,30,80,0"/>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-30,80,0"/>
+                    <TextBlock Text="Fecha factura" HorizontalAlignment="Left" Margin="80,-26,0,50" FontSize="20" FontWeight="Bold"/>
+                </StackPanel>
+            </materialDesgin:Card>
+        </StackPanel>
+
+        <StackPanel Margin="0,10,0,0">
+            <materialDesgin:Card Width="790" Height="105">
+                <StackPanel>
+                    <TextBlock Text="Consulta de factura entre fechas" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+                    <TextBlock Text="Cliente" Width="60" Margin="-920,40,-200,0" FontWeight="Bold"/>
+                    <ComboBox Width="200" Height="30" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}" Margin="-270,-29,200,0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="DropDownOpened">
+                                <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Consultas"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </ComboBox>
+                    <TextBlock Text="Fecha Inicio" Width="60" Margin="-270,-20,-100,0" FontWeight="Bold"/>
+                    <DatePicker Width="100" SelectedDate="{Binding FechaSI}" Margin="-110,-30,-120,0"/>
+                    <TextBlock Text="Fecha Final" Width="60" Margin="-300,-20,-500,0" FontWeight="Bold"/>
+                    <DatePicker Width="100" SelectedDate="{Binding FechaSF}" Margin="-130,-30,-510,0"/>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,30,0"/>
+                </StackPanel>
+            </materialDesgin:Card>
+        </StackPanel>
+
+    </StackPanel>
 </UserControl>

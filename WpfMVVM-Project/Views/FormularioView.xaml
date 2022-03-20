@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WpfMVVM_Project.Views"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1500" Background="Yellow">
+             d:DesignHeight="670" d:DesignWidth="1100" Background="Yellow">
 
 
     <i:Interaction.Triggers>
@@ -22,34 +22,30 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="180"/>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="135"/>
+            <RowDefinition Height="120"/>
             <RowDefinition Height="175"/>
             <RowDefinition Height="180"/>
-            <RowDefinition/>
+            <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-            <TextBlock Text="FACTURA" HorizontalAlignment="Center" FontSize="30" FontWeight="Black"/>
-            <TextBlock Text="Fecha" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Background="White" Width="600" Margin="10">
+            <TextBlock Text="FACTURA" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
+            <TextBlock Text="Fecha" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
             <DatePicker SelectedDate="{Binding Factura.FechaFactura, StringFormat=dd-MM-yyyy}" Width="250" Height="40"/> 
         </StackPanel>
-        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <materialDesgin:Card Width="600" Height="120">
-                <StackPanel>
-                    <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
-                    <ComboBox Width="400" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="DropDownOpened">
-                                <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="formulario"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                    </ComboBox>
-                </StackPanel>
-            </materialDesgin:Card>
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Background="White" Width="600" Margin="10">
+            <TextBlock Text="Cliente" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+            <ComboBox Width="400" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="DropDownOpened">
+                        <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Formulario"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ComboBox>
+             
         </StackPanel>
         <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -59,30 +55,23 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            
+
             <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Orientation="Vertical">
-                <TextBlock Text="Añadir Producto" HorizontalAlignment="Center" FontSize="25" FontWeight="Black"/>
+                <TextBlock Text="Añadir Producto" HorizontalAlignment="Center" FontSize="25" FontWeight="Bold"/>
             </StackPanel>
-
-            <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-                <TextBlock Text="PRODUCTO" HorizontalAlignment="Center" FontSize="20"/>
-            </StackPanel>
-
+            
             <StackPanel Grid.Column="2" Grid.Row="1">
-                <TextBlock Text="CANTIDAD" HorizontalAlignment="Center" FontSize="20"/>
+                <TextBlock Text="CANTIDAD" HorizontalAlignment="Left" FontSize="20" FontWeight="Bold"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Background="White" Margin="18">
                 <TextBlock Text="Escoge un producto" VerticalAlignment="Center"/>
                 <ComboBox x:Name="Combo" Width="400" Height="40" FontSize="15" HorizontalContentAlignment="Center" ItemsSource="{Binding ListaProductos}" SelectedItem="{Binding ProductoM.ProductoModel, UpdateSourceTrigger=PropertyChanged}"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBox Width="100" Height="40" FontSize="15" Text="{Binding ProductoM.Cantidad}"/>
-            </StackPanel>
-
-            <StackPanel Grid.Column="3" Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Añadir" Width="200" Height="60" Command="{Binding AddProductCommand}" CommandParameter="{Binding ElementName=Combo}"/>
+            <StackPanel Grid.Column="2" Grid.Row="3" Orientation="Horizontal" Height="100" Width="400">
+                <TextBox Width="100" Height="40" FontSize="15" Text="{Binding ProductoM.Cantidad}" Background="White"/>
+                <Button Content="Añadir" Width="100" Height="60" Command="{Binding AddProductCommand}" CommandParameter="{Binding ElementName=Combo}" Margin="20"/>
             </StackPanel>
         </Grid>
 
@@ -93,11 +82,10 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <ListView x:Name="productosFacturaListView" ItemsSource="{Binding ListaProductosC, UpdateSourceTrigger=PropertyChanged}" >
+            <StackPanel Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="1" Orientation="Horizontal" HorizontalAlignment="Center" Background="White">
+                <ListView x:Name="productosFacturaListView" ItemsSource="{Binding ListaProductosC, UpdateSourceTrigger=PropertyChanged}">
 
                     <ListView.View>
                         <GridView>
@@ -112,21 +100,22 @@
                 </ListView>
             </StackPanel>
 
-            <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="PRODUCTO" VerticalAlignment="Center" FontSize="25" FontWeight="Black"/>
-            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Width="400">
+                <StackPanel>
+                    <TextBlock Text="PRODUCTO" VerticalAlignment="Center" FontSize="25" FontWeight="Bold"/>
+                    <Button Content="Eliminar" Width="100" Height="60" Command="{Binding EliminarProductoCommand}" CommandParameter="{Binding ElementName=productosFacturaListView, Path=SelectedItem}" Margin="40"/>
 
-            <StackPanel Grid.Column="3" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Eliminar" Width="200" Height="60" Command="{Binding EliminarProductoCommand}" CommandParameter="{Binding ElementName=productosFacturaListView, Path=SelectedItem}"/>
+                </StackPanel>
+               
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Width="200">
+                    <TextBlock Text="TOTAL FACTURA: " FontSize="20" FontWeight="Bold"/>
+                    <TextBlock Text="{Binding Factura.PrecioTotalFactura}" Width="40" Height="20" Margin="-150" />
+                </StackPanel>
+                
             </StackPanel>
         </Grid>
         <StackPanel Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
-                <TextBlock Text="TOTAL FACTURA: " FontSize="30" FontWeight="Black" HorizontalAlignment="Center"/>
-                <TextBlock Text="{Binding Factura.PrecioTotalFactura}" Width="100"/>
-            </StackPanel>
-
-            <Button Width="200" Content="CREAR FACTURA" Command="{Binding GenerarFacturaCommand}"/>
+            <Button Width="200" Content="CREAR FACTURA" Command="{Binding GenerarFacturaCommand}" Margin="20"/>
         </StackPanel>
     </Grid>
     

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WpfMVVM_Project.Models;
 using WpfMVVM_Project.ViewModels;
@@ -17,24 +18,26 @@ namespace WpfMVVM_Project.Commands.FacturaCom
         {
             return true;
         }
-
         public void Execute(object parameter)
         {
-            bool existe = false;
+            bool crear = false;
             foreach (ListaProductoModel p in formularioViewModel.ListaProductosC)
             {
                 if (p.ProductoModel._id.Equals(formularioViewModel.ProductoM.ProductoModel._id))
                 {
                     p.Cantidad = formularioViewModel.ProductoM.Cantidad + p.Cantidad;
                     p.Total = p.ProductoModel.Precio * p.Cantidad;
-                    existe = true;
+                    crear = true;
                     break;
                 }
             }
-            if (!existe)
+            if (!crear)
             {
                 formularioViewModel.ProductoM.Total = formularioViewModel.ProductoM.ProductoModel.Precio * formularioViewModel.ProductoM.Cantidad;
                 formularioViewModel.ListaProductosC.Add((ListaProductoModel)formularioViewModel.ProductoM.Clone());
+            }else
+            {
+                
             }
 
             formularioViewModel.Factura.PrecioTotalFactura = formularioViewModel.Factura.PrecioTotalFactura + formularioViewModel.ProductoM.Total;

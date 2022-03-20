@@ -15,6 +15,17 @@ namespace WpfMVVM_Project.Services.DataSet
         private static ClienteTableAdapter clienteAdapter = new ClienteTableAdapter();
         private static FacturaTableAdapter facturasAdapter = new FacturaTableAdapter();
         private static DetalleFacturaTableAdapter detallesfacturaAdapter = new DetalleFacturaTableAdapter();
+        private static InformesTableAdapter informesAdapter = new InformesTableAdapter();
+
+        public static DataTable GetDataByDniClienteInforme(string dni)
+        {
+            return informesAdapter.GetDataByDni(dni);
+        }
+
+        public static DataTable GetDataByFechaSInforme(DateTime fecha)
+        {
+            return informesAdapter.GetDataByFechaSola(fecha);
+        }
 
         public static bool insertarFactura(string dNI, DateTime fechaFactura, double totalFactura, ObservableCollection<ListaProductoModel> listaProductosC)
         {
@@ -37,16 +48,11 @@ namespace WpfMVVM_Project.Services.DataSet
 
         }
 
-        /*internal static bool insertarFactura(string dNI, DateTime fechaFactura, double totalFactura, ObservableCollection<ListaProductoModel> listaProductosC)
-        {
-            throw new NotImplementedException();
-        }*/
-
-        /*public static string GetDataByDNIC(string dni)
+        public static string GetDataByDniC(string dni)
             {
                try
                {
-                   DataTable clienteDT = clienteAdapter.GetDataByDNIC(dni);
+                   DataTable clienteDT = clienteAdapter.GetDataDniC(dni);
                    DataRow clienteRow = clienteDT.Rows[0];
                    string dniCliente = (string)clienteRow["DNI"];
                    return dniCliente;
@@ -55,7 +61,7 @@ namespace WpfMVVM_Project.Services.DataSet
                {
                    return "";
                }
-            }*/
+            }
 
         public static ObservableCollection<ClienteModel> getAllClientes()
         {
