@@ -22,7 +22,7 @@
             <materialDesgin:Card Width="790" Height="105">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura por Cliente" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-                    <ComboBox Width="300" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
+                    <ComboBox x:Name="cbCliente" Width="300" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="DropDownOpened">
                                 <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Consultas"/>
