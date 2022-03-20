@@ -33,13 +33,16 @@ namespace WpfMVVM_Project.Commands.FacturaCom
             }
             if (!crear)
             {
-                formularioViewModel.ProductoM.Total = formularioViewModel.ProductoM.ProductoModel.Precio * formularioViewModel.ProductoM.Cantidad;
-                formularioViewModel.ListaProductosC.Add((ListaProductoModel)formularioViewModel.ProductoM.Clone());
-            }else
-            {
-                
+                if(formularioViewModel.ProductoM.ProductoModel is null)
+                {
+                    MessageBox.Show("Debes escoger un producto");
+                }
+                else
+                {
+                    formularioViewModel.ProductoM.Total = formularioViewModel.ProductoM.ProductoModel.Precio * formularioViewModel.ProductoM.Cantidad;
+                    formularioViewModel.ListaProductosC.Add((ListaProductoModel)formularioViewModel.ProductoM.Clone());
+                }
             }
-
             formularioViewModel.Factura.PrecioTotalFactura = formularioViewModel.Factura.PrecioTotalFactura + formularioViewModel.ProductoM.Total;
         }
 

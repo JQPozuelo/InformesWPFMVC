@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using WpfMVVM_Project.Models;
 using WpfMVVM_Project.Services.DataSet;
 using WpfMVVM_Project.ViewModels;
 using WpfMVVM_Project.Views;
@@ -29,12 +30,19 @@ namespace WpfMVVM_Project.Commands.FacturaCom
             }
             else
             {*/
+            ClienteModel cliente = consultasViewModel.ClienteM;
+            if (cliente is null)
+            {
+                MessageBox.Show("Debes seleccionar un cliente", "Facturas", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            else
+            {
                 string dni = DataSetHandler.GetDataByDniC(consultasViewModel.ClienteM.DNI);
                 if (dni.Equals(""))
                 {
                     MessageBox.Show("Debes seleccionar un cliente", "Facturas", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
-                else 
+                else
                 {
                     bool funciona = consultasViewModel.updateViewCommand.reportViewModel.GenerarInformePorCliente(consultasViewModel.ClienteM.DNI);
                     if (funciona)
@@ -46,9 +54,8 @@ namespace WpfMVVM_Project.Commands.FacturaCom
                         MessageBox.Show("Este cliente no tiene facturas", "Facturas", MessageBoxButton.OK, MessageBoxImage.Warning);
                     }
                 }
+            }
             //}
-           
-
         }
 
         public ConsultasViewModel consultasViewModel { set; get; }

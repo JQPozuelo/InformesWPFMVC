@@ -24,9 +24,13 @@ namespace WpfMVVM_Project.Commands.FacturaCom
         {
             ClienteModel cliente = formularioViewModel.ClienteM;
             int numProductosSeleccionados = formularioViewModel.ListaProductosC.Count();
+            //ComboFormulario combo = formularioViewModel.ListaProductosC;
             if (numProductosSeleccionados <= 0)
             {
                 MessageBox.Show("Necesitas añadir poductos a la factura");
+            }else if(cliente is null)
+            {
+                MessageBox.Show("Necesitas seleccionar un cliente");
             }
             else
             {

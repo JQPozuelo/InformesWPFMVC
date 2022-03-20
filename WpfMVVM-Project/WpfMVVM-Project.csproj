@@ -125,7 +125,9 @@
     <Compile Include="Commands\FacturaCom\ComboFormulario.cs" />
     <Compile Include="Commands\FacturaCom\DniClienteConsultCommand.cs" />
     <Compile Include="Commands\FacturaCom\EliminarProductoCommand.cs" />
+    <Compile Include="Commands\FacturaCom\FechaConsultaCommand.cs" />
     <Compile Include="Commands\FacturaCom\GenerarFacturaCommand.cs" />
+    <Compile Include="Commands\FacturaCom\IdFacturaCommand.cs" />
     <Compile Include="Commands\FacturaCom\UpdateClienteCommand.cs" />
     <Compile Include="Commands\ProductosCom\BuscarPalabraCommand.cs" />
     <Compile Include="Commands\ProductosCom\BuscarProveedoresCommand.cs" />
@@ -246,7 +248,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\InfomeEFechas.rdlc" />
     <EmbeddedResource Include="Reports\InformeClienteProducto.rdlc" />
+    <EmbeddedResource Include="Reports\InformeFacturaProducto.rdlc" />
+    <EmbeddedResource Include="Reports\InformePorFecha.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

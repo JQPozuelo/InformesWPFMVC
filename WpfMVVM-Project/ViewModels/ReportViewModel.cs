@@ -17,7 +17,9 @@ namespace WpfMVVM_Project.ViewModels
 
         private string CurrentPath = Environment.CurrentDirectory;
         private string InformePorCliente = "Reports/InformeClienteProducto.rdlc";
-
+        private string InformePorFactura = "Reports/InformeFacturaProducto.rdlc";
+        private string InformePorFecha = "Reports/InformePorFecha.rdlc";
+        private string InformeEntreFechas = "Reports/InformeEFechas.rdlc";
         public ReportViewModel()
         {
             myReport = new ReportViewer();
@@ -40,6 +42,46 @@ namespace WpfMVVM_Project.ViewModels
                 return true;
             }
             else 
+            {
+                return false;
+            }
+        }
+        public bool GenerarInformePorFactura(int idFactura)
+        {
+            rds.Name = "DataSet1";
+            DataTable dt = DataSetHandler.GetDataByIdFacturaInforme(idFactura);
+            if (dt.Rows.Count > 0)
+            {
+                rds.Value = dt;
+                rds.Value = DataSetHandler.GetDataByIdFacturaInforme(idFactura);
+                myReport.LocalReport.DataSources.Add(rds);
+                myReport.LocalReport.ReportPath = "../../Reports/InformeFacturaProducto.rdlc";
+                //myReport.LocalReport.ReportPath = System.IO.Path.Combine(CurrentPath, InformePorFactura);
+                byte[] PDFBytes = myReport.LocalReport.Render(format: "PDF", deviceInfo: "");
+                pdfData = "data:application/pdf;base64," + Convert.ToBase64String(PDFBytes);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GenerarInformePorFecha(DateTime fecha)
+        {
+            rds.Name = "DataSet1";
+            DataTable dt = DataSetHandler.GetDataByFechaSInforme(fecha);
+            if (dt.Rows.Count > 0)
+            {
+                rds.Value = dt;
+                rds.Value = DataSetHandler.GetDataByFechaSInforme(fecha);
+                myReport.LocalReport.DataSources.Add(rds);
+                myReport.LocalReport.ReportPath = "../../Reports/InformePorFecha.rdlc";
+                //myReport.LocalReport.ReportPath = System.IO.Path.Combine(CurrentPath, InformePorFecha);
+                byte[] PDFBytes = myReport.LocalReport.Render(format: "PDF", deviceInfo: "");
+                pdfData = "data:application/pdf;base64," + Convert.ToBase64String(PDFBytes);
+                return true;
+            }
+            else
             {
                 return false;
             }
