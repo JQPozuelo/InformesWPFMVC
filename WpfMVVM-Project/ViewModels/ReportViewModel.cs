@@ -19,7 +19,7 @@ namespace WpfMVVM_Project.ViewModels
         private string InformePorCliente = "Reports/InformeClienteProducto.rdlc";
         private string InformePorFactura = "Reports/InformeFacturaProducto.rdlc";
         private string InformePorFecha = "Reports/InformePorFecha.rdlc";
-        private string InformeEntreFechas = "Reports/InformeEFechas.rdlc";
+        //private string InformeEntreFechas = "Reports/InformeEFechas.rdlc";
         public ReportViewModel()
         {
             myReport = new ReportViewer();

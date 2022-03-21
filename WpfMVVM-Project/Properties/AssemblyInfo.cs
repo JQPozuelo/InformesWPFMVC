@@ -7,13 +7,13 @@ using System.Windows;
 // La información general de un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos valores de atributo para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("WpfMVVM-Project")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ProyectoInformes")]
+[assembly: AssemblyDescription("Aplicacion para el trabajo de informes")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("WpfMVVM-Project")]
+[assembly: AssemblyCompany("A5 SL")]
+[assembly: AssemblyProduct("Informes")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("A5Products")]
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
