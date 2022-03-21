@@ -11,7 +11,7 @@
 
     <StackPanel>
         <StackPanel>
-            <materialDesgin:Card Width="790" Height="50">
+            <materialDesgin:Card Width="790" Height="50" Background="Gray">
                 <StackPanel>
                     <TextBlock Text="Consultas de facturas" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                 </StackPanel>
@@ -19,7 +19,7 @@
         </StackPanel>
 
         <StackPanel Margin="0,10,0,0">
-            <materialDesgin:Card Width="790" Height="105">
+            <materialDesgin:Card Width="790" Height="105" Background="Gray">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura por Cliente" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                     <ComboBox x:Name="cbCliente" Width="300" Height="40" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}" Margin="0,15,80,0">
@@ -36,7 +36,7 @@
         </StackPanel>
 
         <StackPanel Margin="0,10,0,0">
-            <materialDesgin:Card Width="790" Height="105">
+            <materialDesgin:Card Width="790" Height="105" Background="Gray">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura por Nº" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                     <TextBox Width="100" Margin="0,30,0,0" Text="{Binding idFactura}"/>
@@ -47,7 +47,7 @@
         </StackPanel>
 
         <StackPanel Margin="0,10,0,0">
-            <materialDesgin:Card Width="790" Height="105">
+            <materialDesgin:Card Width="790" Height="105" Background="Gray">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura en una fecha" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                     <DatePicker Width="100" SelectedDate="{Binding FechaSL}" Margin="70,30,80,0"/>
@@ -58,7 +58,7 @@
         </StackPanel>
 
         <StackPanel Margin="0,10,0,0">
-            <materialDesgin:Card Width="790" Height="105">
+            <materialDesgin:Card Width="790" Height="105" Background="Gray">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura entre fechas" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
                     <CheckBox Margin="0,30,750,10" Width="19" IsChecked="{Binding mostrarCombo}" Checked="CheckBox_Checked" Unchecked="CheckBox_UnChecked"/>

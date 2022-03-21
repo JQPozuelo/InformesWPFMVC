@@ -536,7 +536,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>0.85936cm</Top>
+        <Top>0.03527cm</Top>
+        <Left>0.01701cm</Left>
         <Height>1.7715cm</Height>
         <Width>16.25119cm</Width>
         <Style>
@@ -549,7 +550,7 @@
     <Height>3.74167in</Height>
     <Style />
   </Body>
-  <Width>6.47476in</Width>
+  <Width>6.43309in</Width>
   <Page>
     <PageHeader>
       <Height>5.20516cm</Height>
@@ -576,7 +577,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
           <Top>0.32456cm</Top>
-          <Left>8.5675cm</Left>
+          <Left>7.58149cm</Left>
           <Height>0.93867cm</Height>
           <Width>4.61667cm</Width>
           <Style>
@@ -596,9 +597,9 @@
               <Value>Logo</Value>
               <Sizing>FitProportional</Sizing>
               <Top>0.32456cm</Top>
-              <Left>1.571cm</Left>
+              <Left>0.80433cm</Left>
               <Height>4.49254cm</Height>
-              <Width>5.2465cm</Width>
+              <Width>4.76571cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -609,7 +610,7 @@
           <KeepTogether>true</KeepTogether>
           <Left>0.0812cm</Left>
           <Height>5.1346cm</Height>
-          <Width>7.87866cm</Width>
+          <Width>6.45767cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -626,11 +627,15 @@
               <TextRuns>
                 <TextRun>
                   <Value>DNI: </Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
                 <TextRun>
                   <Value>=Fields!DNI.Value</Value>
-                  <Style />
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
@@ -638,18 +643,77 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
-                  <Style />
+                  <Value>Nombre: </Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!Nombre.Value</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Direccion: </Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!Direccion.Value</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Telefono: </Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!Telefono.Value</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Email:</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!Email.Value</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
                 </TextRun>
               </TextRuns>
               <Style />
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
-          <Top>2.44687cm</Top>
-          <Left>11.00444cm</Left>
-          <Height>2.05273cm</Height>
-          <Width>3.9605cm</Width>
+          <Top>2.4892cm</Top>
+          <Left>11.43616cm</Left>
+          <Height>2.3279cm</Height>
+          <Width>4.83204cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -673,10 +737,155 @@
       <Height>4.16983cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox6">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Automoción J5</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Rda Valencia Nº1 </Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>28045 Madrid (Comunidad de Madrid)</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox6</rd:DefaultName>
+          <Top>1.74272cm</Top>
+          <Left>4.24897cm</Left>
+          <Height>1.97583cm</Height>
+          <Width>6.437cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox7">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>AutomocionJ5@gmail.com</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>918064589</Value>
+                  <Style>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox7</rd:DefaultName>
+          <Top>1.74272cm</Top>
+          <Left>10.86236cm</Left>
+          <Height>1.97583cm</Height>
+          <Width>4.92184cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox8">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Gracias por su compra</Value>
+                  <Style>
+                    <FontSize>20pt</FontSize>
+                    <Color>White</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox8</rd:DefaultName>
+          <Top>0.17639cm</Top>
+          <Left>4.24897cm</Left>
+          <Height>1.38994cm</Height>
+          <Width>11.53523cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
         </Border>
+        <BackgroundColor>Gray</BackgroundColor>
       </Style>
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
