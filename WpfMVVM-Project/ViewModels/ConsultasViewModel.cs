@@ -20,6 +20,7 @@ namespace WpfMVVM_Project.ViewModels
         public ICommand IdFacturaCommand { get; set; }
 
         public ICommand FechaConsultaCommand { get; set; }
+        public ICommand FechaClienteDCommand { get; set; }
         private ClienteModel clienteM { get; set; }
         public ClienteModel ClienteM
         {
@@ -45,7 +46,7 @@ namespace WpfMVVM_Project.ViewModels
         public DateTime FechaSL { set; get; }
         public DateTime FechaSI { set; get; }
         public DateTime FechaSF { set; get; }
-
+        public bool mostrarCombo { set; get; }
         public UpdateViewCommand updateViewCommand { set; get; }
         public ConsultasViewModel( UpdateViewCommand updateViewCommand)
         {
@@ -55,8 +56,9 @@ namespace WpfMVVM_Project.ViewModels
             DniClienteConsultCommand = new DniClienteConsultCommand(this);
             FechaConsultaCommand = new FechaConsultaCommand(this);
             IdFacturaCommand = new IdFacturaCommand(this);
+            FechaClienteDCommand = new FechaClienteDCommand(this);
             ListaClientes = new ObservableCollection<ClienteModel>();
-
+            mostrarCombo = false;
             FechaSI = DateTime.Today;
             FechaSL = DateTime.Today;
             FechaSF = DateTime.Today;

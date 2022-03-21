@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:WpfMVVM_Project.Views"
              xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
-             d:DesignHeight="530" d:DesignWidth="800" Background="Yellow">
+             d:DesignHeight="530" d:DesignWidth="800">
 
     <StackPanel>
         <StackPanel>
@@ -22,14 +22,14 @@
             <materialDesgin:Card Width="790" Height="105">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura por Cliente" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-                    <ComboBox x:Name="cbCliente" Width="300" Height="60" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}">
+                    <ComboBox x:Name="cbCliente" Width="300" Height="40" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}" Margin="0,15,80,0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="DropDownOpened">
                                 <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Consultas"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ComboBox>
-                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,80,0" Cursor="Hand" Command="{Binding DniClienteConsultCommand}"/>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,150,0" Cursor="Hand" Command="{Binding DniClienteConsultCommand}" Background="Black"/>
                     <TextBlock Text="Cliente" HorizontalAlignment="Left" Margin="100,-30,0,50" FontSize="20" FontWeight="Bold"/>
                 </StackPanel>
             </materialDesgin:Card>
@@ -39,9 +39,9 @@
             <materialDesgin:Card Width="790" Height="105">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura por Nº" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-                    <TextBox Width="300" Margin="0,30,0,0" Text="{Binding idFactura}"/>
-                    <TextBlock Text="Nº" HorizontalAlignment="Left" Margin="180,-26,0,50" FontSize="20" FontWeight="Bold"/>
-                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-140,80,0" Command="{Binding IdFacturaCommand}" Cursor="Hand"/>
+                    <TextBox Width="100" Margin="0,30,0,0" Text="{Binding idFactura}"/>
+                    <TextBlock Text="Nº" HorizontalAlignment="Left" Margin="290,-26,0,50" FontSize="20" FontWeight="Bold"/>
+                    <Button Content="Consultar" Width="100" Margin="320,-130,80,0" Command="{Binding IdFacturaCommand}" Cursor="Hand" Background="Black"/>
                 </StackPanel>
             </materialDesgin:Card>
         </StackPanel>
@@ -50,9 +50,9 @@
             <materialDesgin:Card Width="790" Height="105">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura en una fecha" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-                    <DatePicker Width="300" SelectedDate="{Binding FechaSL}" Margin="70,30,80,0"/>
-                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-30,80,0" Command="{Binding FechaConsultaCommand}" Cursor="Hand"/>
-                    <TextBlock Text="Fecha factura" HorizontalAlignment="Left" Margin="80,-26,0,50" FontSize="20" FontWeight="Bold"/>
+                    <DatePicker Width="100" SelectedDate="{Binding FechaSL}" Margin="70,30,80,0"/>
+                    <Button Content="Consultar" Width="100" Margin="300,-30,80,0" Command="{Binding FechaConsultaCommand}" Cursor="Hand" Background="Black"/>
+                    <TextBlock Text="Fecha factura" HorizontalAlignment="Left" Margin="200,-26,0,50" FontSize="20" FontWeight="Bold"/>
                 </StackPanel>
             </materialDesgin:Card>
         </StackPanel>
@@ -61,19 +61,20 @@
             <materialDesgin:Card Width="790" Height="105">
                 <StackPanel>
                     <TextBlock Text="Consulta de factura entre fechas" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold"/>
-                    <TextBlock Text="Cliente" Width="60" Margin="-920,40,-200,0" FontWeight="Bold"/>
-                    <ComboBox Width="200" Height="30" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}" Margin="-270,-29,200,0">
+                    <CheckBox Margin="0,30,750,10" Width="19" IsChecked="{Binding mostrarCombo}" Checked="CheckBox_Checked" Unchecked="CheckBox_UnChecked"/>
+                    <TextBlock x:Name="txtCliente" Text="Cliente" Width="40" Margin="-920,40,-300,0" FontWeight="Bold" Visibility="Collapsed"/>
+                    <ComboBox x:Name="cbClienteFechas" Width="200" Height="30" SelectedItem="{Binding ClienteM}" ItemsSource="{Binding ListaClientes}" Margin="-270,-29,90,0" Visibility="Collapsed">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="DropDownOpened">
                                 <i:InvokeCommandAction Command="{Binding UpdateClienteCommand}" CommandParameter="Consultas"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ComboBox>
-                    <TextBlock Text="Fecha Inicio" Width="60" Margin="-270,-20,-100,0" FontWeight="Bold"/>
-                    <DatePicker Width="100" SelectedDate="{Binding FechaSI}" Margin="-110,-30,-120,0"/>
-                    <TextBlock Text="Fecha Final" Width="60" Margin="-300,-20,-500,0" FontWeight="Bold"/>
-                    <DatePicker Width="100" SelectedDate="{Binding FechaSF}" Margin="-130,-30,-510,0"/>
-                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,30,0"/>
+                    <TextBlock Text="Fecha Inicio" Width="70" Margin="-280,-20,-200,0" FontWeight="Bold"/>
+                    <DatePicker Width="100" SelectedDate="{Binding FechaSI}" Margin="-110,-30,-210,0"/>
+                    <TextBlock Text="Fecha Final" Width="70" Margin="-300,-20,-580,0" FontWeight="Bold"/>
+                    <DatePicker Width="100" SelectedDate="{Binding FechaSF}" Margin="-130,-30,-590,0"/>
+                    <Button Content="Consultar" HorizontalAlignment="Right" Margin="0,-40,10,0" Command="{Binding FechaClienteDCommand}" Cursor="Hand" Background="Black"/>
                 </StackPanel>
             </materialDesgin:Card>
         </StackPanel>

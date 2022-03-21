@@ -159,7 +159,7 @@ namespace WpfMVVM_Project.Models
 
         public override string ToString()
         {
-            return "ID: " + _id + ", " + Descripcion;
+            return "ID: " + _id + ", " + Marca;
         }
 
         public ProductosModel()

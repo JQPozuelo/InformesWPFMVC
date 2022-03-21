@@ -25,6 +25,6 @@
                     CommandParameter="Consultas"/>
         </StackPanel>
 
-        <ContentControl Content="{Binding SelectedViewModel}" Height="700"/>
+        <ContentControl Content="{Binding SelectedViewModel}"/>
     </StackPanel>
 </Window>

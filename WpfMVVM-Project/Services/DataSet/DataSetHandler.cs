@@ -31,7 +31,14 @@ namespace WpfMVVM_Project.Services.DataSet
         {
             return informesAdapter.GetDataIdFactura(idFactura);
         }
-
+        public static DataTable GetDataByFechas(DateTime fechain, DateTime fechafn)
+        {
+            return informesAdapter.GetDataFechas(fechain, fechafn);
+        }
+        public static DataTable GetDataByCDFechas(string dni, DateTime fechain, DateTime fechafn)
+        {
+            return informesAdapter.GetDataCFechas(dni, fechain, fechafn);
+        }
         public static bool insertarFactura(string dNI, DateTime fechaFactura, double totalFactura, ObservableCollection<ListaProductoModel> listaProductosC)
         {
             try

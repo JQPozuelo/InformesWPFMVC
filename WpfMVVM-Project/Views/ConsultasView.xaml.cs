@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfMVVM_Project.ViewModels;
 
 namespace WpfMVVM_Project.Views
 {
@@ -23,6 +24,18 @@ namespace WpfMVVM_Project.Views
         public ConsultasView()
         {
             InitializeComponent();
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            cbClienteFechas.Visibility = Visibility.Visible;
+            
+        }
+
+        private void CheckBox_UnChecked(object sender, RoutedEventArgs e)
+        {
+            cbClienteFechas.Visibility = Visibility.Collapsed;
+            txtCliente.Visibility = Visibility.Collapsed;
         }
     }
 }

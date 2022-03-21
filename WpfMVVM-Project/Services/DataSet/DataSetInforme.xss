@@ -9,7 +9,7 @@
     <Shape ID="DesignTable:Cliente" ZOrder="5" X="468" Y="150" Height="227" Width="216" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="145" />
     <Shape ID="DesignTable:DetalleFactura" ZOrder="4" X="774" Y="100" Height="227" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="168" />
     <Shape ID="DesignTable:Factura" ZOrder="3" X="514" Y="441" Height="181" Width="219" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="122" />
-    <Shape ID="DesignTable:Informes" ZOrder="2" X="1141" Y="224" Height="411" Width="253" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:Informes" ZOrder="2" X="1141" Y="224" Height="505" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="333" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_detallefactura_ToFactura" ZOrder="7" LineWidth="11">

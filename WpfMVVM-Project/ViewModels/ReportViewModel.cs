@@ -86,5 +86,45 @@ namespace WpfMVVM_Project.ViewModels
                 return false;
             }
         }
+        public bool GenerarInformePorFechas(DateTime fechain, DateTime fechafn)
+        {
+            rds.Name = "DataSet1";
+            DataTable dt = DataSetHandler.GetDataByFechas(fechain, fechafn);
+            if (dt.Rows.Count > 0)
+            {
+                rds.Value = dt;
+                rds.Value = DataSetHandler.GetDataByFechas(fechain, fechafn);
+                myReport.LocalReport.DataSources.Add(rds);
+                myReport.LocalReport.ReportPath = "../../Reports/InformePorFecha.rdlc";
+                //myReport.LocalReport.ReportPath = System.IO.Path.Combine(CurrentPath, InformePorFecha);
+                byte[] PDFBytes = myReport.LocalReport.Render(format: "PDF", deviceInfo: "");
+                pdfData = "data:application/pdf;base64," + Convert.ToBase64String(PDFBytes);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool GenerarInformeClienteFechas(string dni, DateTime fechain, DateTime fechafn)
+        {
+            rds.Name = "DataSet1";
+            DataTable dt = DataSetHandler.GetDataByCDFechas(dni, fechain, fechafn);
+            if (dt.Rows.Count > 0)
+            {
+                rds.Value = dt;
+                rds.Value = DataSetHandler.GetDataByCDFechas(dni, fechain, fechafn);
+                myReport.LocalReport.DataSources.Add(rds);
+                myReport.LocalReport.ReportPath = "../../Reports/InformeClienteProducto.rdlc";
+                //myReport.LocalReport.ReportPath = System.IO.Path.Combine(CurrentPath, InformePorFecha);
+                byte[] PDFBytes = myReport.LocalReport.Render(format: "PDF", deviceInfo: "");
+                pdfData = "data:application/pdf;base64," + Convert.ToBase64String(PDFBytes);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

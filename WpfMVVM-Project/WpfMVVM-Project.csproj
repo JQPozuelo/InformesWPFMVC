@@ -125,6 +125,7 @@
     <Compile Include="Commands\FacturaCom\ComboFormulario.cs" />
     <Compile Include="Commands\FacturaCom\DniClienteConsultCommand.cs" />
     <Compile Include="Commands\FacturaCom\EliminarProductoCommand.cs" />
+    <Compile Include="Commands\FacturaCom\FechaClienteDCommand.cs" />
     <Compile Include="Commands\FacturaCom\FechaConsultaCommand.cs" />
     <Compile Include="Commands\FacturaCom\GenerarFacturaCommand.cs" />
     <Compile Include="Commands\FacturaCom\IdFacturaCommand.cs" />
